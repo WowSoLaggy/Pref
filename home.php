@@ -21,12 +21,13 @@
 		
 		// Get player list
 		
-		$result = mysql_query("SELECT id, name FROM players_tbl");
+		$result = mysql_query("SELECT id, name, image FROM players_tbl");
 		$num_players = mysql_num_rows($result);
 		for ($i = 0; $i < $num_players; $i++)
 		{
 			$players[$i]['id'] = mysql_result($result, $i, 'id');
 			$players[$i]['name'] = mysql_result($result, $i, 'name');
+			$players[$i]['image'] = mysql_result($result, $i, 'image');
 			$players[$i]['hill'] = 0;
 			$players[$i]['score'] = 0;
 		}
@@ -176,7 +177,8 @@
 		echo '<h3>Топ игроков</h3><table border="1">';
 		for ($i = 0; $i < $num_players; $i++)
 			echo "<tr><td width=20 align=center>".($i + 1).
-			"</td><td width=100>".$players_sorted[$i]['name'].
+			"</td><td width=100><img src='images/".$players_sorted[$i]['image'].
+			"' align=left width=50>".$players_sorted[$i]['name'].
 			"</td><td width=50 align=right>".$players_sorted[$i]['score']."</td></tr>";
 		echo '</table>';
 		
@@ -184,6 +186,8 @@
 		mysql_close($myConnect);
 		
 		?>
+		
+		<img src="images/Egorov.png" align=left width=50>
 		
 	</body>
 </html>
