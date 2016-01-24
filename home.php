@@ -70,7 +70,7 @@
 				$players[$games[$i]['1_name']]['hill'] += $games[$i]['1_hill'];
 				$players[$games[$i]['2_name']]['hill'] += $games[$i]['2_hill'];
 				$players[$games[$i]['3_name']]['hill'] += $games[$i]['3_hill'];
-				$total_hill = ($games[$i]['1_hill'] + $games[$i]['2_hill'] + $games[$i]['3_hill']) / 30;
+				$total_hill = ($games[$i]['1_hill'] + $games[$i]['2_hill'] + $games[$i]['3_hill']) / 3;
 				
 				$players[$games[$i]['1_name']]['score'] += $total_hill * 10;
 				$players[$games[$i]['1_name']]['score'] -= $games[$i]['1_hill'] * 10;
