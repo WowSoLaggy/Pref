@@ -72,12 +72,32 @@
 				$players[$games[$i]['3_name']]['hill'] += $games[$i]['3_hill'];
 				$total_hill = ($games[$i]['1_hill'] + $games[$i]['2_hill'] + $games[$i]['3_hill']) / 3;
 				
+				// 1
+				
 				$players[$games[$i]['1_name']]['score'] += $total_hill * 10;
 				$players[$games[$i]['1_name']]['score'] -= $games[$i]['1_hill'] * 10;
 				$players[$games[$i]['1_name']]['score'] += $games[$i]['1_money_2'];
 				$players[$games[$i]['1_name']]['score'] += $games[$i]['1_money_3'];
 				$players[$games[$i]['1_name']]['score'] -= $games[$i]['2_money_1'];
 				$players[$games[$i]['1_name']]['score'] -= $games[$i]['3_money_1'];
+				
+				// 2
+				
+				$players[$games[$i]['2_name']]['score'] += $total_hill * 10;
+				$players[$games[$i]['2_name']]['score'] -= $games[$i]['2_hill'] * 10;
+				$players[$games[$i]['2_name']]['score'] += $games[$i]['2_money_1'];
+				$players[$games[$i]['2_name']]['score'] += $games[$i]['2_money_3'];
+				$players[$games[$i]['2_name']]['score'] -= $games[$i]['1_money_2'];
+				$players[$games[$i]['2_name']]['score'] -= $games[$i]['3_money_2'];
+				
+				// 3
+				
+				$players[$games[$i]['3_name']]['score'] += $total_hill * 10;
+				$players[$games[$i]['3_name']]['score'] -= $games[$i]['3_hill'] * 10;
+				$players[$games[$i]['3_name']]['score'] += $games[$i]['3_money_1'];
+				$players[$games[$i]['3_name']]['score'] += $games[$i]['3_money_2'];
+				$players[$games[$i]['3_name']]['score'] -= $games[$i]['1_money_3'];
+				$players[$games[$i]['3_name']]['score'] -= $games[$i]['2_money_3'];
 			}
 			else if ($games[$i]['num_players'] == 4)
 			{
@@ -90,6 +110,8 @@
 				$total_hill = ($games[$i]['1_hill'] + $games[$i]['2_hill'] +
 					$games[$i]['3_hill'] + $games[$i]['4_hill']) / 4;
 				
+				// 1
+				
 				$players[$games[$i]['1_name']]['score'] += $total_hill * 10;
 				$players[$games[$i]['1_name']]['score'] -= $games[$i]['1_hill'] * 10;
 				$players[$games[$i]['1_name']]['score'] += $games[$i]['1_money_2'];
@@ -98,6 +120,39 @@
 				$players[$games[$i]['1_name']]['score'] -= $games[$i]['2_money_1'];
 				$players[$games[$i]['1_name']]['score'] -= $games[$i]['3_money_1'];
 				$players[$games[$i]['1_name']]['score'] -= $games[$i]['4_money_1'];
+				
+				// 2
+				
+				$players[$games[$i]['2_name']]['score'] += $total_hill * 10;
+				$players[$games[$i]['2_name']]['score'] -= $games[$i]['2_hill'] * 10;
+				$players[$games[$i]['2_name']]['score'] += $games[$i]['2_money_1'];
+				$players[$games[$i]['2_name']]['score'] += $games[$i]['2_money_3'];
+				$players[$games[$i]['2_name']]['score'] += $games[$i]['2_money_4'];
+				$players[$games[$i]['2_name']]['score'] -= $games[$i]['1_money_2'];
+				$players[$games[$i]['2_name']]['score'] -= $games[$i]['3_money_2'];
+				$players[$games[$i]['2_name']]['score'] -= $games[$i]['4_money_2'];
+				
+				// 3
+				
+				$players[$games[$i]['3_name']]['score'] += $total_hill * 10;
+				$players[$games[$i]['3_name']]['score'] -= $games[$i]['3_hill'] * 10;
+				$players[$games[$i]['3_name']]['score'] += $games[$i]['3_money_1'];
+				$players[$games[$i]['3_name']]['score'] += $games[$i]['3_money_2'];
+				$players[$games[$i]['3_name']]['score'] += $games[$i]['3_money_4'];
+				$players[$games[$i]['3_name']]['score'] -= $games[$i]['1_money_3'];
+				$players[$games[$i]['3_name']]['score'] -= $games[$i]['2_money_3'];
+				$players[$games[$i]['3_name']]['score'] -= $games[$i]['4_money_3'];
+				
+				// 4
+				
+				$players[$games[$i]['4_name']]['score'] += $total_hill * 10;
+				$players[$games[$i]['4_name']]['score'] -= $games[$i]['4_hill'] * 10;
+				$players[$games[$i]['4_name']]['score'] += $games[$i]['4_money_1'];
+				$players[$games[$i]['4_name']]['score'] += $games[$i]['4_money_2'];
+				$players[$games[$i]['4_name']]['score'] += $games[$i]['4_money_3'];
+				$players[$games[$i]['4_name']]['score'] -= $games[$i]['1_money_4'];
+				$players[$games[$i]['4_name']]['score'] -= $games[$i]['2_money_4'];
+				$players[$games[$i]['4_name']]['score'] -= $games[$i]['3_money_4'];
 			}
 		}
 		mysql_free_result($result);
