@@ -88,6 +88,7 @@ for ($i = 0; $i < $num_games; $i++)
 	if ($play4)
 		$score -= $games[$i]['4_money_1'];
 	$players[$games[$i]['1_name']]['score'] = $score;
+	echo $score."<br>";
 	//$players[$games[$i]['1_name']]['games']++;
 	//if ($score > 0)
 		//players[$games[$i]['1_name']]['wins']++;
@@ -112,6 +113,7 @@ for ($i = 0; $i < $num_games; $i++)
 	if ($play4)
 		$score -= $games[$i]['4_money_2'];
 	$players[$games[$i]['2_name']]['score'] = $score;
+	echo $score."<br>";
 	//$players[$games[$i]['2_name']]['games']++;
 	//if ($score > 0)
 		//players[$games[$i]['2_name']]['wins']++;
@@ -136,6 +138,7 @@ for ($i = 0; $i < $num_games; $i++)
 	if ($play4)
 		$score -= $games[$i]['4_money_3'];
 	$players[$games[$i]['3_name']]['score'] = $score;
+	echo $score."<br>";
 	//$players[$games[$i]['3_name']]['games']++;
 	//if ($score > 0)
 		//players[$games[$i]['3_name']]['wins']++;
@@ -160,6 +163,7 @@ for ($i = 0; $i < $num_games; $i++)
 		$score -= $games[$i]['2_money_4'];
 		$score -= $games[$i]['3_money_4'];
 		$players[$games[$i]['4_name']]['score'] = $score;
+		echo $score."<br>";
 		//$players[$games[$i]['4_name']]['games']++;
 		//if ($score > 0)
 			//players[$games[$i]['4_name']]['wins']++;
