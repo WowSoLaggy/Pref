@@ -36,12 +36,9 @@
 		mysql_select_db($dbName, $myConnect);
 		
 		$result = mysql_query("SELECT id FROM games_tbl WHERE 1_name=3 OR 2_name=3 OR 3_name=3 OR 4_name=3;", $myConnect);
-		while ($line = mysql_fetch_array($result))
-		{
-			foreach ($line as $elem)
-				echo $elem.' ';
-		}
-		echo mysql_num_rows($result);
+		$count = mysql_num_rows($result);
+		for ($i = 0; $i < $count; $i++)
+			echo mysql_result($result, $i, 'id');
 		mysql_free_result($result);
 		mysql_close($myConnect);
 		?>
