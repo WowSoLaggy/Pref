@@ -41,6 +41,7 @@
 			foreach ($line as $elem)
 				echo $elem.' ';
 		}
+		echo mysql_num_rows($result);
 		mysql_free_result($result);
 		mysql_close($myConnect);
 		?>
