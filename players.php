@@ -26,9 +26,9 @@
 			"' align=absmiddle hspace=10 vspace=10 width=50>".$players[$i]['name'].
 			"</td><td width=60 align=center>".$players[$i]['score'].
 			"</td><td width=30 align=center>".$players[$i]['games'].
-			"</td><td width=40 align=center>".($players[$i]['wins'] / $players[$i]['games'] * 100).
+			"</td><td width=40 align=center>".(round($players[$i]['wins'] / $players[$i]['games'] * 100)).
 			"%</td><td width=100 align=center>".
-			$players[$i]['hill_min']."/".$players[$i]['hill_avg']."/".$players[$i]['hill_max'].
+			$players[$i]['hill_min']."/".(round($players[$i]['hill_avg']))."/".$players[$i]['hill_max'].
 			"</td></tr>";
 		echo '</table>';
 		
