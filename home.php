@@ -162,8 +162,7 @@
 		echo '<h3>Общая статистика</h3><table border="0">
 			<tr><td width=220 align=left>Всего сыграно игр:</td><td>'.$num_games.'</td>
 			<tr><td>Всего участвовало игроков:</td><td>'.$num_players.'</td>
-			</table>';
-		<br>
+			</table><br>';
 		
 		// Output Top-players
 		
