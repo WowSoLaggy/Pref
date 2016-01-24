@@ -17,6 +17,7 @@
 		$dbPass='AfterWorld';
 		$myConnect = mysql_connect($dbHost, $dbUser, $dbPass);
 		mysql_select_db($dbName, $myConnect);
+		mysql_query("SET NAMES cp1251;");
 		
 		$result = mysql_query("SELECT id, name FROM players_tbl");
 		$count = mysql_num_rows($result);
