@@ -177,8 +177,8 @@
 		echo '<h3>Топ игроков</h3><table border="1">';
 		for ($i = 0; $i < $num_players; $i++)
 			echo "<tr><td width=20 align=center>".($i + 1).
-			"</td><td width=100><img src='images/".$players_sorted[$i]['image'].
-			"' align=left width=50>".$players_sorted[$i]['name'].
+			"</td><td width=150><img src='images/".$players_sorted[$i]['image'].
+			"' align=absmiddle width=50>".$players_sorted[$i]['name'].
 			"</td><td width=50 align=right>".$players_sorted[$i]['score']."</td></tr>";
 		echo '</table>';
 		
@@ -186,8 +186,6 @@
 		mysql_close($myConnect);
 		
 		?>
-		
-		<img src="images/Egorov.png" align=left width=50>
 		
 	</body>
 </html>
