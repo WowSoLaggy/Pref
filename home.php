@@ -169,13 +169,13 @@
 		$players_sorted = $players;
 		function scoreSort($a, $b)
 		{
-			return ($a['score'] - $b[score]);
+			return ($b['score'] - $a[score]);
 		}
 		usort($players_sorted, "scoreSort");
 		
 		echo '<h3>Топ игроков</h3><table border="1">';
 		for ($i = 0; $i < $num_players; $i++)
-			echo "<tr><td width=20 align=center>".($players_sorted[$i]['id'] + 1).
+			echo "<tr><td width=20 align=center>".($i + 1).
 			"</td><td width=100>".$players_sorted[$i]['name'].
 			"</td><td width=50 align=right>".$players_sorted[$i]['score']."</td></tr>";
 		echo '</table>';
