@@ -6,7 +6,9 @@
 	</head>
 	
 	<body>
-		Меню сайта:<br>
+		<br>
+		Меню сайта:
+		<br>
 		<ul>
 			<li><a href="home.php" target="content">Главная</a></li>
 			<li><a href="players.php" target="content">Игроки</a></li>
