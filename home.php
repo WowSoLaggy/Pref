@@ -38,7 +38,7 @@
 		$result = mysql_query("SELECT id FROM games_tbl WHERE 1_name=3 OR 2_name=3 OR 3_name=3 OR 4_name=3;", $myConnect);
 		while ($line = mysql_fetch_array($result))
 		{
-			foreach ($line as &elem)
+			foreach ($line as $elem)
 				echo $elem.' ';
 		}
 		mysql_free_result($result);
