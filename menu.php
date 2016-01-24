@@ -6,6 +6,11 @@
 	</head>
 	
 	<body>
-		Привет, я меню!
+		Меню сайта:<br>
+		<ul>
+			<li><a href="home.php" target="content">Главная</a></li>
+			<li><a href="players.php" target="content">Игроки</a></li>
+			<li><a href="games.php" target="content">Игры</a></li>
+		</ul>
 	</body>
 </html>

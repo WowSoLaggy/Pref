@@ -6,6 +6,7 @@
 	</head>
 	
 	<body>
-		Привет, я топ!
+		<img src="images/kand.png"/ align=left>
+		<h1 align=center>Анонимный клуб преферансистов</h1>
 	</body>
 </html>

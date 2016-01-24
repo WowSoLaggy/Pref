@@ -6,6 +6,6 @@
 	</head>
 	
 	<body>
-		Привет, я футер!
+		<div align=right>DOHXEHAPO, 2016</div>
 	</body>
 </html>

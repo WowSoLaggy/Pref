@@ -6,16 +6,42 @@
 	</head>
 	
 	<body>
-		<h1>Последние игры</h1>
-		Егоров: 129 -113 -52 388 = 352<br>
-		Дегть: -93 5 -200 92 0 = -196<br>
-		Козлов: 11 131 252 -480 -138 = -224<br>
-		Юля: -45 -23 138 = 70<br>
-		15.01.16
+	
+		<h2>Главная страница</h2>
+		<br>
+		<h3>Топ игроков</h3>
+	
+		<table border="1">
+			<tr><td width=20 align=center>1</td><td width=100>Егоров</td><td width=50 align=right>352</td></tr>
+			<tr><td align=center>2</td><td>Юля</td><td align=right>70</td></tr>
+			<tr><td align=center>3</td><td>Дегть</td><td align=right>-196</td></tr>
+			<tr><td align=center>4</td><td>Козлов</td><td align=right>-224</td></tr>
+		</table>
 		
 		<br>
-		<?
-		echo "Hello, world!";
+		<h3>Общая статистика</h3>
+		
+		<table border="0">
+			<tr><td width=220 align=left>Всего сыграно игр:</td><td>5</td>
+			<tr><td>Всего участвовало игроков:</td><td>4</td>
+		</table>
+		
+		<?php
+		$dbHost='localhost';
+		$dbName='pref';
+		$dbUser='root';
+		$dbPass='AfterWorld';
+		
+		$myConnect = mysql_connect($dbHost, $dbUser, $dbPass);
+		mysql_select_db($dbName, $myConnect);
+		
+		$qwer = mysql_query("SELECT id FROM games_tbl WHERE 1_name=3 OR 2_name=3 OR 3_name=3 OR 4_name=3;", $myConnect);
+		while ($arr=mysql_fetch_array($qwer))
+		{
+			echo $arr[0].' '.$arr[1];
+		}
+		mysql_close($myConnect);
 		?>
+		
 	</body>
 </html>
