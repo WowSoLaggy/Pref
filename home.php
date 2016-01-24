@@ -35,9 +35,10 @@
 		$myConnect = mysql_connect($dbHost, $dbUser, $dbPass);
 		mysql_select_db($dbName, $myConnect);
 		
-		$qwer = mysql_query("SELECT id FROM games_tbl WHERE 1_name=3 OR 2_name=3 OR 3_name=3 OR 4_name=3;", $myConnect);
-		$arr=mysql_fetch_array($qwer);
-		echo $arr[0].' '.$arr[1];
+		$result = mysql_query("SELECT id FROM games_tbl WHERE 1_name=3 OR 2_name=3 OR 3_name=3 OR 4_name=3;", $myConnect);
+		while ($line = mysql_fetch_array($result))
+			echo $line.' ';
+		mysql_free_result($result);
 		mysql_close($myConnect);
 		?>
 		
