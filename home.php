@@ -28,7 +28,7 @@
 		
 		echo '<h3>Топ игроков</h3><table border="1">';
 		for ($i = 0; $i < $count; $i++)
-			echo "<tr><td width=20 align=center>$players[$i]['id']</td><td width=100>$players[$i]['name']</td><td width=50 align=right>352</td></tr>";
+			echo "<tr><td width=20 align=center>".$players[$i]['id']."</td><td width=100>".$players[$i]['name']."</td><td width=50 align=right>352</td></tr>";
 		echo '</table>';
 		
 		mysql_free_result($result);
