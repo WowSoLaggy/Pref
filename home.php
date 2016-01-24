@@ -157,6 +157,14 @@
 		}
 		mysql_free_result($result);
 		
+		// Output stat
+		
+		echo '<h3>Общая статистика</h3><table border="0">
+			<tr><td width=220 align=left>Всего сыграно игр:</td><td>'.$num_games.'</td>
+			<tr><td>Всего участвовало игроков:</td><td>'.$num_players.'</td>
+			</table>';
+		<br>
+		
 		// Output Top-players
 		
 		echo '<h3>Топ игроков</h3><table border="1">';
@@ -170,14 +178,6 @@
 		mysql_close($myConnect);
 		
 		?>
-		
-		<br>
-		<h3>Общая статистика</h3>
-		
-		<table border="0">
-			<tr><td width=220 align=left>Всего сыграно игр:</td><td>5</td>
-			<tr><td>Всего участвовало игроков:</td><td>4</td>
-		</table>
 		
 	</body>
 </html>
