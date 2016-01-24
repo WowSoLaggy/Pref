@@ -28,6 +28,7 @@
 			$players[$i]['id'] = mysql_result($result, $i, 'id');
 			$players[$i]['name'] = mysql_result($result, $i, 'name');
 			$players[$i]['hill'] = 0;
+			$players[$i]['score'] = 0;
 		}
 		mysql_free_result($result);
 		
@@ -69,7 +70,34 @@
 				$players[$games[$i]['1_name']]['hill'] += $games[$i]['1_hill'];
 				$players[$games[$i]['2_name']]['hill'] += $games[$i]['2_hill'];
 				$players[$games[$i]['3_name']]['hill'] += $games[$i]['3_hill'];
-				$total_hill = ($games[$i]['1_hill'] + $games[$i]['2_hill'] + $games[$i]['3_hill'] / 3);
+				$total_hill = ($games[$i]['1_hill'] + $games[$i]['2_hill'] + $games[$i]['3_hill']) / 30;
+				
+				$players[$games[$i]['1_name']]['score'] += $total_hill * 10;
+				$players[$games[$i]['1_name']]['score'] -= $games[$i]['1_hill'] * 10;
+				$players[$games[$i]['1_name']]['score'] += $games[$i]['1_money_2'];
+				$players[$games[$i]['1_name']]['score'] += $games[$i]['1_money_3'];
+				$players[$games[$i]['1_name']]['score'] -= $games[$i]['2_money_1'];
+				$players[$games[$i]['1_name']]['score'] -= $games[$i]['3_money_1'];
+			}
+			else if ($games[$i]['num_players'] == 4)
+			{
+				// Hill
+				
+				$players[$games[$i]['1_name']]['hill'] += $games[$i]['1_hill'];
+				$players[$games[$i]['2_name']]['hill'] += $games[$i]['2_hill'];
+				$players[$games[$i]['3_name']]['hill'] += $games[$i]['3_hill'];
+				$players[$games[$i]['4_name']]['hill'] += $games[$i]['4_hill'];
+				$total_hill = ($games[$i]['1_hill'] + $games[$i]['2_hill'] +
+					$games[$i]['3_hill'] + $games[$i]['4_hill']) / 4;
+				
+				$players[$games[$i]['1_name']]['score'] += $total_hill * 10;
+				$players[$games[$i]['1_name']]['score'] -= $games[$i]['1_hill'] * 10;
+				$players[$games[$i]['1_name']]['score'] += $games[$i]['1_money_2'];
+				$players[$games[$i]['1_name']]['score'] += $games[$i]['1_money_3'];
+				$players[$games[$i]['1_name']]['score'] += $games[$i]['1_money_4'];
+				$players[$games[$i]['1_name']]['score'] -= $games[$i]['2_money_1'];
+				$players[$games[$i]['1_name']]['score'] -= $games[$i]['3_money_1'];
+				$players[$games[$i]['1_name']]['score'] -= $games[$i]['4_money_1'];
 			}
 		}
 		mysql_free_result($result);
@@ -80,7 +108,7 @@
 		for ($i = 0; $i < $num_players; $i++)
 			echo "<tr><td width=20 align=center>".($players[$i]['id'] + 1).
 			"</td><td width=100>".$players[$i]['name'].
-			"</td><td width=50 align=right>".$players[$i]['hill']."</td></tr>";
+			"</td><td width=50 align=right>".$players[$i]['score']."</td></tr>";
 		echo '</table>';
 		
 		mysql_free_result($result);
