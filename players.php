@@ -24,9 +24,9 @@
 			echo "<tr><td width=20 align=center>".($i + 1).
 			"</td><td width=160><img src='images/".$players[$i]['image'].
 			"' align=absmiddle hspace=10 vspace=10 width=50>".$players[$i]['name'].
-			"</td><td width=80 align=center>".$players[$i]['score'].
+			"</td><td width=100 align=center>".$players[$i]['score'].
 			"</td><td width=50 align=center>".$players[$i]['games'].
-			"</td><td width=60 align=center>".(round($players[$i]['wins'] / $players[$i]['games'] * 100)).
+			"</td><td width=65 align=center>".(round($players[$i]['wins'] / $players[$i]['games'] * 100)).
 			"%</td><td width=120 align=center>".
 			$players[$i]['hill_min']."/".(round($players[$i]['hill_avg']))."/".$players[$i]['hill_max'].
 			"</td></tr>";
