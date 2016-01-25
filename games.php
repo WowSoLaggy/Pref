@@ -38,7 +38,8 @@
 				echo " bgcolor=#664400";
 			
 			echo "><img src='images/".$players[$games_sorted[$i]['1_name']]['image'].
-			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games_sorted[$i]['1_score'].
+			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".
+			round($games_sorted[$i]['1_score']).
 			"<br>Гора: ".$games_sorted[$i]['1_hill'].
 			"<br>Висты: ".$games_sorted[$i]['1_money']."</p>".
 			"</td><td";
@@ -49,7 +50,8 @@
 				echo " bgcolor=#664400";
 			
 			echo "><img src='images/".$players[$games_sorted[$i]['2_name']]['image'].
-			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games_sorted[$i]['2_score'].
+			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".
+			round($games_sorted[$i]['2_score']).
 			"<br>Гора: ".$games_sorted[$i]['2_hill'].
 			"<br>Висты: ".$games_sorted[$i]['2_money']."</p>".
 			"</td><td";
@@ -60,7 +62,8 @@
 				echo " bgcolor=#664400";
 			
 			echo "><img src='images/".$players[$games_sorted[$i]['3_name']]['image'].
-			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games_sorted[$i]['3_score'].
+			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".
+			round($games_sorted[$i]['3_score']).
 			"<br>Гора: ".$games_sorted[$i]['3_hill'].
 			"<br>Висты: ".$games_sorted[$i]['3_money']."</p>".
 			"</td><td";
@@ -73,7 +76,8 @@
 					echo " bgcolor=#664400";
 			
 				echo "><img src='images/".$players[$games_sorted[$i]['4_name']]['image'].
-				"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games_sorted[$i]['4_score'].
+				"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".
+				round($games_sorted[$i]['4_score']).
 				"<br>Гора: ".$games_sorted[$i]['4_hill'].
 				"<br>Висты: ".$games_sorted[$i]['4_money']."</p>";
 			}
