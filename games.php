@@ -21,9 +21,9 @@
 		echo '<table border="1"><td><th width=60>Пуля</th><th width=70>Игрок 1</th><th width=70>Игрок 2</th><th width=70>Игрок 3</th><th width=70>Игрок 4</th></td>';
 		for ($i = $num_games - 1; $i >= 0; $i--)
 		{
-			echo "<tr><td width=20 align=center>".($games[$i]['id'] + 1).
+			echo "<tr valign=center><td width=20 align=center>".($games[$i]['id'] + 1).
 			"</td><td align=center>".$games[$i]['total'].
-			"</td><td><img src='images/".$players[$games[$i]['1_name']]['image']."' align=left hspace=10 vspace=10 width=50><p>Счёт: 60<br>Гора: 20<br>Висты: 100</p>".
+			"</td><td><img src='images/".$players[$games[$i]['1_name']]['image']."' align=left hspace=10 vspace=10 width=50><p>Счёт: 360<br>Гора: 20<br>Висты: 100</p>".
 			"</td><td><img src='images/".$players[$games[$i]['2_name']]['image']."' align=left hspace=10 vspace=10 width=50><p>Счёт: 60<br>Гора: 20<br>Висты: 100</p>".
 			"</td><td><img src='images/".$players[$games[$i]['3_name']]['image']."' align=left hspace=10 vspace=10 width=50><p>Счёт: 60<br>Гора: 20<br>Висты: 100</p>".
 			"</td><td>";
