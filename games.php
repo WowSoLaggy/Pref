@@ -10,8 +10,6 @@
 		<h2>Список игр</h2>
 		<br>
 		
-		Тут пока ничего нет. Но скоро будет.
-		
 		<?php
 		
 		// Calculate players and games
@@ -24,8 +22,13 @@
 		for ($i = $num_games - 1; $i >= 0; $i--)
 		{
 			echo "<tr><td width=20 align=center>".($games[$i]['id'] + 1).
-			"</td><td><img src='images/".$players[$games[$id]['1_name']]['image']."' align=absmiddle hspace=10 vspace=10 width=50>".
-			"</td></tr>";
+			"</td><td><img src='images/".$players[$games[$i]['1_name']]['image']."' align=absmiddle hspace=10 vspace=10 width=50>".
+			"</td><td><img src='images/".$players[$games[$i]['2_name']]['image']."' align=absmiddle hspace=10 vspace=10 width=50>".
+			"</td><td><img src='images/".$players[$games[$i]['3_name']]['image']."' align=absmiddle hspace=10 vspace=10 width=50>".
+			"</td><td>";
+			if ($games[$i]['num_players'] == 4)
+				echo "<img src='images/".$players[$games[$i]['1_name']]['image']."' align=absmiddle hspace=10 vspace=10 width=50>";
+			echo "</td></tr>";
 		}
 		echo '</table>';
 		
