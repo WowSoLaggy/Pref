@@ -19,7 +19,7 @@
 		// Output Top-players
 		
 		echo '<table border="1"><td><th>Имя</th><th>Общий счёт</th><th>Игры</th><th>Победы</th>
-		<th>Общая гора<br>(мин/ср/макс)</th><th>Всего вистов<br>(мин/ср/макс)</th><th>Баланс<br>вистов</th></td>';
+		<th>Общая гора<br>(мин/ср/макс)</th><th>Всего вистов<br>(мин/ср/макс)</th><th>Баланс вистов<br>(мин/ср/макс)</th></td>';
 		for ($i = 0; $i < $num_players; $i++)
 			echo "<tr><td width=20 align=center>".($i + 1).
 			"</td><td width=160><img src='images/".$players[$i]['image'].
@@ -31,7 +31,8 @@
 			$players[$i]['hill_min']."/".(round($players[$i]['hill_avg']))."/".$players[$i]['hill_max'].
 			")</td><td width=120 align=center>".$players[$i]['money']."<br>(".
 			$players[$i]['money_min']."/".(round($players[$i]['money_avg']))."/".$players[$i]['money_max'].
-			")</td><td width=65 align=center>".$players[$i]['money_bal'].
+			")</td><td width=120 align=center>".$players[$i]['money_bal']."<br>(".
+			$players[$i]['money_bal_min']."/".(round($players[$i]['money_bal_avg']))."/".$players[$i]['money_bal_max'].
 			"</td></tr>";
 		echo '</table>';
 		
