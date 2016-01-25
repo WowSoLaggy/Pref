@@ -23,7 +23,14 @@
 		{
 			echo "<tr valign=center><td width=20 align=center>".($games[$i]['id'] + 1).
 			"</td><td align=center>".$games[$i]['total'].
-			"</td><td><img src='images/".$players[$games[$i]['1_name']]['image'].
+			"</td><td";
+			
+			if ($games[$i]['1_score'] > 0)
+				echo " bgcolor=#009900";
+			else if ($games[$i]['1_score'] < 0)
+				echo " bgcolor=#664400";
+			
+			echo "><img src='images/".$players[$games[$i]['1_name']]['image'].
 			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games[$i]['1_score'].
 			"<br>Гора: ".$games[$i]['1_hill'].
 			"<br>Висты: ".$games[$i]['1_money']."</p>".
