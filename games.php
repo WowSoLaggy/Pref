@@ -21,7 +21,7 @@
 		$games_sorted = $games;
 		function scoreDate($a, $b)
 		{
-			return (-$b['date'] + $a['date']);
+			return ($b['date'] - $a['date']);
 		}
 		usort($games_sorted, "scoreDate");
 		
