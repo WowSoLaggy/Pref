@@ -27,6 +27,7 @@ p
 
 #block_stat, #block_top
 {
-	border:1px solid red;
+	border: 1px solid red;
 	float: left;
+	margin: 20px;
 }
