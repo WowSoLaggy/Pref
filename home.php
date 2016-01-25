@@ -18,10 +18,10 @@
 		
 		// Output stat
 		
-		echo '<h3>Общая статистика</h3><table border="0">
+		echo '<div id="block_stat"><h3>Общая статистика</h3><table border="0">
 			<tr><td width=220 align=left>Всего сыграно игр:</td><td>'.$num_games.'</td>
 			<tr><td>Всего участвовало игроков:</td><td>'.$num_players.'</td>
-			</table><br>';
+			</table></div>';
 		
 		// Output Top-players
 		
@@ -32,7 +32,7 @@
 		}
 		usort($players_sorted, "scoreSort");
 		
-		echo '<h3>Топ игроков</h3><table border="1"><td><th>Имя</th><th>Игры</th><th>Общий счёт</th></td>';
+		echo '<div id="block_top"><h3>Топ игроков</h3><table border="1"><td><th>Имя</th><th>Игры</th><th>Общий счёт</th></td>';
 		for ($i = 0; $i < $num_players; $i++)
 		{
 			echo "<tr><td width=20 align=center>".($i + 1).
@@ -41,7 +41,7 @@
 			"</td><td width=50 align=center>".$players_sorted[$i]['games'].
 			"</td><td width=100 align=center>".round($players_sorted[$i]['score'])."</td></tr>";
 		}
-		echo '</table>';
+		echo '</table></div>';
 		
 		?>
 		
