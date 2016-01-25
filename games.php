@@ -43,6 +43,9 @@
 				"<br>Висты: ".$games[$i]['4_money']."</p>";
 			echo "</td><td align=center>".$games[$i]['date'].
 			"</td></tr>";
+			
+			setlocale(LC_ALL, 'ru_RU.UTF-8');
+			echo strftime('%S', $games[$i]['date']);
 		}
 		echo '</table>';
 		
