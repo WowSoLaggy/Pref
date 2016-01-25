@@ -250,7 +250,7 @@ for ($i = 0; $i < $num_games; $i++)
 		$players[$games[$i]['4_name']]['money_bal_min'] = $money;
 			if ($money > $players[$games[$i]['4_name']]['money_bal_max'])
 		$players[$games[$i]['4_name']]['money_bal_max'] = $money;
-			$players[$games[$i]['1_name']]['money_bal_avg'] = $players[$games[$i]['4_name']]['money_bal'] /
+			$players[$games[$i]['4_name']]['money_bal_avg'] = $players[$games[$i]['4_name']]['money_bal'] /
 		$players[$games[$i]['4_name']]['games'];
 		
 		// Hill
