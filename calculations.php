@@ -37,7 +37,7 @@ mysql_free_result($result);
 
 // Parse all games
 
-$result = mysql_query("SELECT * FROM games_tbl");
+$result = mysql_query("SELECT * FROM games_tbl ORDER BY 'date' DESC");
 $num_games = mysql_num_rows($result);
 for ($i = 0; $i < $num_games; $i++)
 {
