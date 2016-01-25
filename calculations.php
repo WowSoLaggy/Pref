@@ -99,8 +99,6 @@ for ($i = 0; $i < $num_games; $i++)
 		$players[$games[$i]['1_name']]['money_min'] = $money;
 	if ($money > $players[$games[$i]['1_name']]['money_max'])
 		$players[$games[$i]['1_name']]['money_max'] = $money;
-	$players[$games[$i]['1_name']]['money_avg'] = $players[$games[$i]['1_name']]['money'] /
-		$players[$games[$i]['1_name']]['games'];
 	
 	// Money MINUS
 	$money -= $games[$i]['2_money_1'];
@@ -112,8 +110,6 @@ for ($i = 0; $i < $num_games; $i++)
 		$players[$games[$i]['1_name']]['money_bal_min'] = $money;
 	if ($money > $players[$games[$i]['1_name']]['money_bal_max'])
 		$players[$games[$i]['1_name']]['money_bal_max'] = $money;
-	$players[$games[$i]['1_name']]['money_bal_avg'] = $players[$games[$i]['1_name']]['money_bal'] /
-		$players[$games[$i]['1_name']]['games'];
 		
 	// Hill
 	$score += $money;
@@ -125,8 +121,6 @@ for ($i = 0; $i < $num_games; $i++)
 		$players[$games[$i]['1_name']]['hill_min'] = $games[$i]['1_hill'];
 	if ($games[$i]['1_hill'] > $players[$games[$i]['1_name']]['hill_max'])
 		$players[$games[$i]['1_name']]['hill_max'] = $games[$i]['1_hill'];
-	$players[$games[$i]['1_name']]['hill_avg'] = $players[$games[$i]['1_name']]['hill'] /
-		$players[$games[$i]['1_name']]['games'];
 	
 	// 2
 	
@@ -145,8 +139,6 @@ for ($i = 0; $i < $num_games; $i++)
 		$players[$games[$i]['2_name']]['money_min'] = $money;
 	if ($money > $players[$games[$i]['2_name']]['money_max'])
 		$players[$games[$i]['2_name']]['money_max'] = $money;
-	$players[$games[$i]['2_name']]['money_avg'] = $players[$games[$i]['2_name']]['money'] /
-		$players[$games[$i]['2_name']]['games'];
 		
 	// Money MINUS
 	$money -= $games[$i]['1_money_2'];
@@ -158,8 +150,6 @@ for ($i = 0; $i < $num_games; $i++)
 		$players[$games[$i]['2_name']]['money_bal_min'] = $money;
 	if ($money > $players[$games[$i]['2_name']]['money_bal_max'])
 		$players[$games[$i]['2_name']]['money_bal_max'] = $money;
-	$players[$games[$i]['2_name']]['money_bal_avg'] = $players[$games[$i]['2_name']]['money_bal'] /
-		$players[$games[$i]['2_name']]['games'];
 	
 	// Hill
 	$score += $money;
@@ -171,8 +161,6 @@ for ($i = 0; $i < $num_games; $i++)
 		$players[$games[$i]['2_name']]['hill_min'] = $games[$i]['2_hill'];
 	if ($games[$i]['2_hill'] > $players[$games[$i]['2_name']]['hill_max'])
 		$players[$games[$i]['2_name']]['hill_max'] = $games[$i]['2_hill'];
-	$players[$games[$i]['2_name']]['hill_avg'] = $players[$games[$i]['2_name']]['hill'] /
-		$players[$games[$i]['2_name']]['games'];
 	
 	// 3
 	
@@ -191,8 +179,6 @@ for ($i = 0; $i < $num_games; $i++)
 		$players[$games[$i]['3_name']]['money_min'] = $money;
 	if ($money > $players[$games[$i]['3_name']]['money_max'])
 		$players[$games[$i]['3_name']]['money_max'] = $money;
-	$players[$games[$i]['3_name']]['money_avg'] = $players[$games[$i]['3_name']]['money'] /
-		$players[$games[$i]['3_name']]['games'];
 	
 	// Money MINUS
 	$money -= $games[$i]['1_money_3'];
@@ -204,8 +190,6 @@ for ($i = 0; $i < $num_games; $i++)
 		$players[$games[$i]['3_name']]['money_bal_min'] = $money;
 	if ($money > $players[$games[$i]['3_name']]['money_bal_max'])
 		$players[$games[$i]['3_name']]['money_bal_max'] = $money;
-	$players[$games[$i]['3_name']]['money_bal_avg'] = $players[$games[$i]['3_name']]['money_bal'] /
-		$players[$games[$i]['3_name']]['games'];
 	
 	// Hill
 	$score += $money;
@@ -217,8 +201,6 @@ for ($i = 0; $i < $num_games; $i++)
 		$players[$games[$i]['3_name']]['hill_min'] = $games[$i]['3_hill'];
 	if ($games[$i]['3_hill'] > $players[$games[$i]['3_name']]['hill_max'])
 		$players[$games[$i]['3_name']]['hill_max'] = $games[$i]['3_hill'];
-	$players[$games[$i]['3_name']]['hill_avg'] = $players[$games[$i]['3_name']]['hill'] /
-		$players[$games[$i]['3_name']]['games'];
 	
 	if ($play4)
 	{
@@ -234,24 +216,20 @@ for ($i = 0; $i < $num_games; $i++)
 		$money += $games[$i]['4_money_2'];
 		$money += $games[$i]['4_money_3'];
 		$players[$games[$i]['4_name']]['money'] += $money;
-			if ($money < $players[$games[$i]['4_name']]['money_min'])
-		$players[$games[$i]['4_name']]['money_min'] = $money;
-			if ($money > $players[$games[$i]['4_name']]['money_max'])
-		$players[$games[$i]['4_name']]['money_max'] = $money;
-			$players[$games[$i]['4_name']]['money_avg'] = $players[$games[$i]['4_name']]['money'] /
-		$players[$games[$i]['4_name']]['games'];
+		if ($money < $players[$games[$i]['4_name']]['money_min'])
+			$players[$games[$i]['4_name']]['money_min'] = $money;
+		if ($money > $players[$games[$i]['4_name']]['money_max'])
+			$players[$games[$i]['4_name']]['money_max'] = $money;
 		
 		// Money MINUS
 		$money -= $games[$i]['1_money_4'];
 		$money -= $games[$i]['2_money_4'];
 		$money -= $games[$i]['3_money_4'];
 		$players[$games[$i]['4_name']]['money_bal'] += $money;
-			if ($money < $players[$games[$i]['4_name']]['money_bal_min'])
-		$players[$games[$i]['4_name']]['money_bal_min'] = $money;
-			if ($money > $players[$games[$i]['4_name']]['money_bal_max'])
-		$players[$games[$i]['4_name']]['money_bal_max'] = $money;
-			$players[$games[$i]['4_name']]['money_bal_avg'] = $players[$games[$i]['4_name']]['money_bal'] /
-		$players[$games[$i]['4_name']]['games'];
+		if ($money < $players[$games[$i]['4_name']]['money_bal_min'])
+			$players[$games[$i]['4_name']]['money_bal_min'] = $money;
+		if ($money > $players[$games[$i]['4_name']]['money_bal_max'])
+			$players[$games[$i]['4_name']]['money_bal_max'] = $money;
 		
 		// Hill
 		$score += $money;
@@ -263,11 +241,16 @@ for ($i = 0; $i < $num_games; $i++)
 			$players[$games[$i]['4_name']]['hill_min'] = $games[$i]['4_hill'];
 		if ($games[$i]['4_hill'] > $players[$games[$i]['4_name']]['hill_max'])
 			$players[$games[$i]['4_name']]['hill_max'] = $games[$i]['4_hill'];
-		$players[$games[$i]['4_name']]['hill_avg'] = $players[$games[$i]['4_name']]['hill'] /
-			$players[$games[$i]['4_name']]['games'];
 	}
 }
 mysql_free_result($result);
 mysql_close($myConnect);
+
+for ($i = 0; $i < $num_players; $i++)
+{
+	$players[$i]['hill_avg'] = round($players[$i]['hill'] / $players[$i]['games']);
+	$players[$i]['money_avg'] = round($players[$i]['money'] / $players[$i]['games']);
+	$players[$i]['money_bal_avg'] = round($players[$i]['money_bal'] / $players[$i]['games']);
+}
 
 ?>
