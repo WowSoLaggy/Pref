@@ -106,6 +106,7 @@ for ($i = 0; $i < $num_games; $i++)
 	if ($play4)
 		$money -= $games[$i]['4_money_1'];
 	$players[$games[$i]['1_name']]['money_bal'] += $money;
+	$games[$i]['1_money'] = $money;
 	if ($money < $players[$games[$i]['1_name']]['money_bal_min'])
 		$players[$games[$i]['1_name']]['money_bal_min'] = $money;
 	if ($money > $players[$games[$i]['1_name']]['money_bal_max'])
@@ -147,6 +148,7 @@ for ($i = 0; $i < $num_games; $i++)
 	if ($play4)
 		$money -= $games[$i]['4_money_2'];
 	$players[$games[$i]['2_name']]['money_bal'] += $money;
+	$games[$i]['2_money'] = $money;
 	if ($money < $players[$games[$i]['2_name']]['money_bal_min'])
 		$players[$games[$i]['2_name']]['money_bal_min'] = $money;
 	if ($money > $players[$games[$i]['2_name']]['money_bal_max'])
@@ -188,6 +190,7 @@ for ($i = 0; $i < $num_games; $i++)
 	if ($play4)
 		$money -= $games[$i]['4_money_3'];
 	$players[$games[$i]['3_name']]['money_bal'] += $money;
+	$games[$i]['3_money'] = $money;
 	if ($money < $players[$games[$i]['3_name']]['money_bal_min'])
 		$players[$games[$i]['3_name']]['money_bal_min'] = $money;
 	if ($money > $players[$games[$i]['3_name']]['money_bal_max'])
@@ -229,6 +232,7 @@ for ($i = 0; $i < $num_games; $i++)
 		$money -= $games[$i]['2_money_4'];
 		$money -= $games[$i]['3_money_4'];
 		$players[$games[$i]['4_name']]['money_bal'] += $money;
+		$games[$i]['4_money'] = $money;
 		if ($money < $players[$games[$i]['4_name']]['money_bal_min'])
 			$players[$games[$i]['4_name']]['money_bal_min'] = $money;
 		if ($money > $players[$games[$i]['4_name']]['money_bal_max'])
