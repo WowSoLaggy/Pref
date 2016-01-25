@@ -28,4 +28,5 @@ p
 #block_stat, #block_top
 {
 	border:1px solid red;
+	float: left;
 }
