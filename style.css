@@ -19,3 +19,8 @@ a:hover
 	color: white;
 	text-decoration: underline;
 }
+
+p
+{
+	margin:10px;
+}
