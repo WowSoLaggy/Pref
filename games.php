@@ -45,7 +45,8 @@
 			"</td></tr>";
 			
 			setlocale(LC_ALL, 'ru_RU.UTF-8');
-			echo strftime('%S', $games[$i]['date']);
+			echo strftime('%d %b %Y', $games[$i]['date']);
+			echo '<br>';
 		}
 		echo '</table>';
 		
