@@ -20,10 +20,11 @@
 		
 		// Output games
 		
-		echo '<table border="1"><td><th>Игрок 1</th><th>Игрок 2</th><th>Игрок 3</th><th>Игрок 4</th><th>До скольки</th></td>';
-		for ($i = $num_games; $i >= 0; $i--)
+		echo '<table border="1"><td><th width=160>Игрок 1</th><th width=160>Игрок 2</th><th width=160>Игрок 3</th><th width=160>Игрок 4</th><th width=60>Пуля</th></td>';
+		for ($i = $num_games - 1; $i >= 0; $i--)
 		{
-			echo "<tr><td width=20 align=center>".$games[$i]['id'].
+			echo "<tr><td width=20 align=center>".($games[$i]['id'] + 1).
+			"</td><td><img src='images/".$players[$games[$id]['1_name']]['image']."' align=absmiddle hspace=10 vspace=10 width=50>".
 			"</td></tr>";
 		}
 		echo '</table>';
