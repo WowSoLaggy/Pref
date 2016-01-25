@@ -18,7 +18,7 @@
 		
 		// Output games
 		
-		echo '<table border="1"><td><th width=60>Пуля</th><th width=70>Игрок 1</th><th width=70>Игрок 2</th><th width=70>Игрок 3</th><th width=70>Игрок 4</th></td>';
+		echo '<table border="1"><td><th width=60>Пуля</th><th width=170>Игрок 1</th><th width=170>Игрок 2</th><th width=170>Игрок 3</th><th width=170>Игрок 4</th></td>';
 		for ($i = $num_games - 1; $i >= 0; $i--)
 		{
 			echo "<tr valign=center><td width=20 align=center>".($games[$i]['id'] + 1).
