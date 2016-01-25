@@ -19,8 +19,12 @@
 		// Output stat
 		
 		echo '<div id="block_stat"><h3>Общая статистика</h3><table border="0">
-			<tr><td width=220 align=left>Всего сыграно игр:</td><td>'.$num_games.'</td>
-			<tr><td>Всего участвовало игроков:</td><td>'.$num_players.'</td>
+			<tr><td width=220 align=left>Всего сыграно игр:</td><td>'.$num_games.'</td></tr>
+			<tr><td>Общая длина всех пуль:</td><td>-</td></tr>
+			<tr><td>Всего участвовало игроков:</td><td>'.$num_players.'</td></tr>
+			<tr><td>Наибольшая победа:</td><td>-</td></tr>
+			<tr><td>Наибольший проигрыш:</td><td>-</td></tr>
+			<tr><td>Наибольшая гора:</td><td>-</td></tr>
 			</table></div>';
 		
 		// Output Top-players
