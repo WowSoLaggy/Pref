@@ -18,7 +18,7 @@
 		
 		// Output Top-players
 		
-		echo '<table border="1"><td><th>Имя</th><th>Общий счёт</th><th>Игры<br>(Общая пуля)</th><th>Победы</th>
+		echo '<table border="1"><td><th>Имя</th><th>Общий счёт</th><th>Игры<br>(Сумма пуль)</th><th>Победы</th>
 		<th>Общая гора<br>(мин/ср/макс)</th><th>Баланс вистов<br>(мин/ср/макс)</th><th>Всего вистов<br>(мин/ср/макс)</th></td>';
 		for ($i = 0; $i < $num_players; $i++)
 		{
@@ -26,7 +26,7 @@
 			"</td><td width=160><img src='images/".$players[$i]['image'].
 			"' align=absmiddle hspace=10 vspace=10 width=50>".$players[$i]['name'].
 			"</td><td width=100 align=center>".round($players[$i]['score']).
-			"</td><td width=120 align=center>".$players[$i]['games']."<br>(".$players[$i]['total'].
+			"</td><td width=100 align=center>".$players[$i]['games']."<br>(".$players[$i]['total'].
 			")</td><td width=65 align=center>".(round($players[$i]['wins'] / $players[$i]['games'] * 100)).
 			"%</td><td width=120 align=center>".$players[$i]['hill']."<br>(".
 			$players[$i]['hill_min']."/".(round($players[$i]['hill_avg']))."/".$players[$i]['hill_max'].

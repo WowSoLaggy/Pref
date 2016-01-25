@@ -83,6 +83,14 @@ for ($i = 0; $i < $num_games; $i++)
 			$games[$i]['3_hill'] + $games[$i]['4_hill']) / 4;
 	}
 	
+	// Total
+	
+	$players[$games[$i]['1_name']]['total'] += $games[$i]['total'];
+	$players[$games[$i]['2_name']]['total'] += $games[$i]['total'];
+	$players[$games[$i]['3_name']]['total'] += $games[$i]['total'];
+	if ($play4)
+		$players[$games[$i]['4_name']]['total'] += $games[$i]['total'];
+	
 	// 1
 	
 	$score = 0;
