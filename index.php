@@ -8,7 +8,7 @@
 		<frame src="top.php" name="top" scrolling="no" noresize>
 		<frameset cols="190, *">
 			<frame src="menu.php" name="menu" scrolling="no" noresize>
-			<frame src="home.php" name="content" scrolling="no" noresize>
+			<frame src="home.php" name="content" scrolling="auto" noresize>
 		</frameset>
 		<frame src="footer.php" name="footer" scrolling="no" noresize>
 	</frameset>
