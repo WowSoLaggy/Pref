@@ -20,6 +20,7 @@ for ($i = 0; $i < $num_players; $i++)
 	$players[$i]['hill'] = 0;
 	$players[$i]['score'] = 0;
 	$players[$i]['games'] = 0;
+	$players[$i]['total'] = 0;
 	$players[$i]['wins'] = 0;
 	$players[$i]['hill_min'] = 99999;
 	$players[$i]['hill_avg'] = 0;
