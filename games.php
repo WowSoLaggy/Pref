@@ -21,12 +21,12 @@
 		$games_sorted = $games;
 		function scoreDate($a, $b)
 		{
-			return -($b['date'] - $a['date']);
+			return ($b['date'] - $a['date']);
 		}
 		usort($games_sorted, "scoreDate");
 		
 		echo '<table border="1"><td><th width=60>Пуля</th><th width=170>Игрок 1</th><th width=170>Игрок 2</th><th width=170>Игрок 3</th><th width=170>Игрок 4</th><th width=150>Дата</th></td>';
-		for ($i = $num_games - 1; $i >= 0; $i--)
+		for ($i = 0; $i < $num_games; $i++)
 		{
 			echo "<tr valign=center><td width=20 align=center>".($games_sorted[$i]['id'] + 1).
 			"</td><td align=center>".$games_sorted[$i]['total'].
