@@ -24,3 +24,8 @@ p
 {
 	margin:10px;
 }
+
+table
+{
+	border-style:dotted solid double dashed;
+}
