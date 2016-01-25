@@ -18,7 +18,7 @@
 		
 		// Output Top-players
 		
-		echo '<table border="1"><td><th>Имя</th><th>Общий счёт</th><th>Игры<br>(Сумма пуль)</th><th>Победы</th>
+		echo '<table border="1"><td><th>Имя</th><th>Общий счёт</th><th>Игры<br>(Сумма пуль)</th><th>Участие/<br>Победы</th>
 		<th>Общая гора<br>(мин/ср/макс)</th><th>Баланс вистов<br>(мин/ср/макс)</th><th>Всего вистов<br>(мин/ср/макс)</th></td>';
 		for ($i = 0; $i < $num_players; $i++)
 		{
@@ -26,14 +26,15 @@
 			"</td><td width=160><img src='images/".$players[$i]['image'].
 			"' align=absmiddle hspace=10 vspace=10 width=50>".$players[$i]['name'].
 			"</td><td width=100 align=center>".round($players[$i]['score']).
-			"</td><td width=100 align=center>".$players[$i]['games']."<br>(".$players[$i]['total'].
-			")</td><td width=65 align=center>".(round($players[$i]['wins'] / $players[$i]['games'] * 100)).
+			"</td><td width=110 align=center>".$players[$i]['games']."<br>(".$players[$i]['total'].
+			")</td><td width=75 align=center>".round($players[$i]['games'] / $num_games * 100)."%/".
+			round($players[$i]['wins'] / $players[$i]['games'] * 100).
 			"%</td><td width=120 align=center>".$players[$i]['hill']."<br>(".
-			$players[$i]['hill_min']."/".(round($players[$i]['hill_avg']))."/".$players[$i]['hill_max'].
+			$players[$i]['hill_min']."/".round($players[$i]['hill_avg'])."/".$players[$i]['hill_max'].
 			")</td><td width=120 align=center>".$players[$i]['money_bal']."<br>(".
-			$players[$i]['money_bal_min']."/".(round($players[$i]['money_bal_avg']))."/".$players[$i]['money_bal_max'].
+			$players[$i]['money_bal_min']."/".round($players[$i]['money_bal_avg'])."/".$players[$i]['money_bal_max'].
 			")</td><td width=120 align=center>".$players[$i]['money']."<br>(".
-			$players[$i]['money_min']."/".(round($players[$i]['money_avg']))."/".$players[$i]['money_max'].
+			$players[$i]['money_min']."/".round($players[$i]['money_avg'])."/".$players[$i]['money_max'].
 			")</td></tr>";
 		}
 		echo '</table>';
