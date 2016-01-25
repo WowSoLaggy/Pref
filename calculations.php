@@ -199,13 +199,13 @@ for ($i = 0; $i < $num_games; $i++)
 	$money -= $games[$i]['2_money_3'];
 	if ($play4)
 		$money -= $games[$i]['4_money_3'];
-	$players[$games[$i]['2_name']]['money_bal'] += $money;
-	if ($money < $players[$games[$i]['2_name']]['money_bal_min'])
-		$players[$games[$i]['2_name']]['money_bal_min'] = $money;
-	if ($money > $players[$games[$i]['2_name']]['money_bal_max'])
-		$players[$games[$i]['2_name']]['money_bal_max'] = $money;
-	$players[$games[$i]['2_name']]['money_bal_avg'] = $players[$games[$i]['2_name']]['money_bal'] /
-		$players[$games[$i]['2_name']]['games'];
+	$players[$games[$i]['3_name']]['money_bal'] += $money;
+	if ($money < $players[$games[$i]['3_name']]['money_bal_min'])
+		$players[$games[$i]['3_name']]['money_bal_min'] = $money;
+	if ($money > $players[$games[$i]['3_name']]['money_bal_max'])
+		$players[$games[$i]['3_name']]['money_bal_max'] = $money;
+	$players[$games[$i]['3_name']]['money_bal_avg'] = $players[$games[$i]['3_name']]['money_bal'] /
+		$players[$games[$i]['3_name']]['games'];
 	
 	// Hill
 	$score += $money;
