@@ -23,7 +23,7 @@
 		{
 			echo "<tr><td width=20 align=center>".($games[$i]['id'] + 1).
 			"</td><td align=center>".$games[$i]['total'].
-			"</td><td><img src='images/".$players[$games[$i]['1_name']]['image']."' align=absmiddle hspace=10 vspace=10 width=50>Счёт: 60<br>Гора: 20<br>Висты: 100".
+			"</td><td><img src='images/".$players[$games[$i]['1_name']]['image']."' align=absmiddle hspace=10 vspace=10 width=50><div>Счёт: 60<br>Гора: 20<br>Висты: 100</div>".
 			"</td><td><img src='images/".$players[$games[$i]['2_name']]['image']."' align=absmiddle hspace=10 vspace=10 width=50>Счёт: 60<br>Гора: 20<br>Висты: 100".
 			"</td><td><img src='images/".$players[$games[$i]['3_name']]['image']."' align=absmiddle hspace=10 vspace=10 width=50>Счёт: 60<br>Гора: 20<br>Висты: 100".
 			"</td><td>";
