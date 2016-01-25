@@ -34,20 +34,45 @@
 			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games[$i]['1_score'].
 			"<br>Гора: ".$games[$i]['1_hill'].
 			"<br>Висты: ".$games[$i]['1_money']."</p>".
-			"</td><td><img src='images/".$players[$games[$i]['2_name']]['image'].
+			"</td><td";
+			
+			if ($games[$i]['2_score'] > 0)
+				echo " bgcolor=#009900";
+			else if ($games[$i]['2_score'] < 0)
+				echo " bgcolor=#664400";
+			
+			echo "><img src='images/".$players[$games[$i]['2_name']]['image'].
 			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games[$i]['2_score'].
 			"<br>Гора: ".$games[$i]['2_hill'].
 			"<br>Висты: ".$games[$i]['2_money']."</p>".
-			"</td><td><img src='images/".$players[$games[$i]['3_name']]['image'].
+			"</td><td";
+			
+			if ($games[$i]['3_score'] > 0)
+				echo " bgcolor=#009900";
+			else if ($games[$i]['3_score'] < 0)
+				echo " bgcolor=#664400";
+			
+			echo "><img src='images/".$players[$games[$i]['3_name']]['image'].
 			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games[$i]['3_score'].
 			"<br>Гора: ".$games[$i]['3_hill'].
 			"<br>Висты: ".$games[$i]['3_money']."</p>".
-			"</td><td>";
+			"</td><td";
+			
 			if ($games[$i]['num_players'] == 4)
-				echo "<img src='images/".$players[$games[$i]['4_name']]['image'].
+			{
+				if ($games[$i]['4_score'] > 0)
+					echo " bgcolor=#009900";
+				else if ($games[$i]['4_score'] < 0)
+					echo " bgcolor=#664400";
+			
+				echo "><img src='images/".$players[$games[$i]['4_name']]['image'].
 				"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games[$i]['4_score'].
 				"<br>Гора: ".$games[$i]['4_hill'].
 				"<br>Висты: ".$games[$i]['4_money']."</p>";
+			}
+			else
+				echo ">";
+			
 			echo "</td><td align=center>".$games[$i]['date'].
 			"</td></tr>";
 		}
