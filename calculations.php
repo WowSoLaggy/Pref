@@ -24,6 +24,11 @@ for ($i = 0; $i < $num_players; $i++)
 	$players[$i]['hill_min'] = 99999;
 	$players[$i]['hill_avg'] = 0;
 	$players[$i]['hill_max'] = 0;
+	$players[$i]['money'] = 0;
+	$players[$i]['money_min'] = 0;
+	$players[$i]['money_avg'] = 0;
+	$players[$i]['money_max'] = 0;
+	$players[$i]['money_bal'] = 0;
 }
 mysql_free_result($result);
 
