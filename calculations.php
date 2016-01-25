@@ -111,9 +111,10 @@ for ($i = 0; $i < $num_games; $i++)
 	if ($money > $players[$games[$i]['1_name']]['money_bal_max'])
 		$players[$games[$i]['1_name']]['money_bal_max'] = $money;
 		
-	// Hill
+	// Result
 	$score += $money;
 	$players[$games[$i]['1_name']]['score'] += $score;
+	$games[$i]['1_score'] = $score;
 	$players[$games[$i]['1_name']]['games']++;
 	if ($score > 0)
 		$players[$games[$i]['1_name']]['wins']++;
@@ -151,9 +152,10 @@ for ($i = 0; $i < $num_games; $i++)
 	if ($money > $players[$games[$i]['2_name']]['money_bal_max'])
 		$players[$games[$i]['2_name']]['money_bal_max'] = $money;
 	
-	// Hill
+	// Result
 	$score += $money;
 	$players[$games[$i]['2_name']]['score'] += $score;
+	$games[$i]['2_score'] = $score;
 	$players[$games[$i]['2_name']]['games']++;
 	if ($score > 0)
 		$players[$games[$i]['2_name']]['wins']++;
@@ -191,9 +193,10 @@ for ($i = 0; $i < $num_games; $i++)
 	if ($money > $players[$games[$i]['3_name']]['money_bal_max'])
 		$players[$games[$i]['3_name']]['money_bal_max'] = $money;
 	
-	// Hill
+	// Result
 	$score += $money;
 	$players[$games[$i]['3_name']]['score'] += $score;
+	$games[$i]['3_score'] = $score;
 	$players[$games[$i]['3_name']]['games']++;
 	if ($score > 0)
 		$players[$games[$i]['3_name']]['wins']++;
@@ -231,9 +234,10 @@ for ($i = 0; $i < $num_games; $i++)
 		if ($money > $players[$games[$i]['4_name']]['money_bal_max'])
 			$players[$games[$i]['4_name']]['money_bal_max'] = $money;
 		
-		// Hill
+		// Result
 		$score += $money;
 		$players[$games[$i]['4_name']]['score'] += $score;
+		$games[$i]['4_score'] = $score;
 		$players[$games[$i]['4_name']]['games']++;
 		if ($score > 0)
 			$players[$games[$i]['4_name']]['wins']++;

@@ -23,12 +23,20 @@
 		{
 			echo "<tr valign=center><td width=20 align=center>".($games[$i]['id'] + 1).
 			"</td><td align=center>".$games[$i]['total'].
-			"</td><td><img src='images/".$players[$games[$i]['1_name']]['image']."' align=left hspace=10 vspace=10 width=50><p>Счёт: 360<br>Гора: 20<br>Висты: 100</p>".
-			"</td><td><img src='images/".$players[$games[$i]['2_name']]['image']."' align=left hspace=10 vspace=10 width=50><p>Счёт: 60<br>Гора: 20<br>Висты: 100</p>".
-			"</td><td><img src='images/".$players[$games[$i]['3_name']]['image']."' align=left hspace=10 vspace=10 width=50><p>Счёт: 60<br>Гора: 20<br>Висты: 100</p>".
+			"</td><td><img src='images/".$players[$games[$i]['1_name']]['image'].
+			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games[$i]['1_score'].
+			"<br>Гора: ".$games[$i]['1_hill']."<br>Висты: 100</p>".
+			"</td><td><img src='images/".$players[$games[$i]['2_name']]['image'].
+			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games[$i]['2_score'].
+			"<br>Гора: ".$games[$i]['2_hill']."<br>Висты: 100</p>".
+			"</td><td><img src='images/".$players[$games[$i]['3_name']]['image'].
+			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games[$i]['3_score'].
+			"<br>Гора: ".$games[$i]['3_hill']."<br>Висты: 100</p>".
 			"</td><td>";
 			if ($games[$i]['num_players'] == 4)
-				echo "<img src='images/".$players[$games[$i]['4_name']]['image']."' align=left hspace=10 vspace=10 width=50><p>Счёт: 60<br>Гора: 20<br>Висты: 100</p>";
+				echo "<img src='images/".$players[$games[$i]['4_name']]['image'].
+				"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".$games[$i]['4_score'].
+				"<br>Гора: ".$games[$i]['4_hill']."<br>Висты: 100</p>";
 			echo "</td></tr>";
 		}
 		echo '</table>';
