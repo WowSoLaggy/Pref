@@ -33,7 +33,7 @@
 			$players[$i]['money_min']."/".(round($players[$i]['money_avg']))."/".$players[$i]['money_max'].
 			")</td><td width=120 align=center>".$players[$i]['money_bal']."<br>(".
 			$players[$i]['money_bal_min']."/".(round($players[$i]['money_bal_avg']))."/".$players[$i]['money_bal_max'].
-			"</td></tr>";
+			")</td></tr>";
 		echo '</table>';
 		
 		?>
