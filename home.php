@@ -23,7 +23,7 @@
 			<tr><td>Всего участвовало игроков:</td><td>'.$num_players.'</td></tr>
 			<tr><td>Наибольшая победа:</td><td>'.round($max_win).'</td></tr>
 			<tr><td>Наибольший проигрыш:</td><td>'.round($max_loss).'</td></tr>
-			<tr><td>Наибольшая гора:</td><td>'.$max_hill.'</td></tr>
+			<tr><td><a href="games.php#anchor_2014">Наибольшая гора</a>:</td><td>'.$max_hill.'</td></tr>
 			</table></div>';
 		
 		// Output Top-players
