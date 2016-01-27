@@ -19,10 +19,10 @@ a:hover
 	color: white;
 	text-decoration: underline;
 }
-a.anchor_ref
+.anchor_ref
 {
 	color: white;
-	text-decoration: none;
+	text-decoration: none !important;
 }
 
 p
