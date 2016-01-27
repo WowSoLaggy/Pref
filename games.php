@@ -98,11 +98,13 @@
 			{
 				draw_table($start_index, $i - 1);
 				$start_index = $i;
+				$cur_year = $year;
 			}
 			else if ($i == $num_games - 1)
 			{
 				draw_table($start_index, $i);
 				$start_index = $i;
+				$cur_year = $year;
 			}
 		}
 
