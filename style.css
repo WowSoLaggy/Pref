@@ -19,6 +19,11 @@ a:hover
 	color: white;
 	text-decoration: underline;
 }
+a.anchor_ref:hover
+{
+	color: white;
+	text-decoration: none;
+}
 
 p
 {

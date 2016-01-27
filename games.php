@@ -88,10 +88,6 @@
 		
 		// Output games year-by-year
 		
-		echo "<br>";
-		echo "<a href='#anchor_2015'>2015</a>";
-		echo "<br>";
-		
 		$cur_year = date_parse($games[0]['date'])['year'];
 		$start_index = 0;
 		for ($i = 0; $i < $num_games; $i++)
@@ -100,7 +96,7 @@
 			
 			if ($year != $cur_year)
 			{
-				echo "<h3><a name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
+				echo "<h3><a class='anchor_ref' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
 				draw_table($start_index, $i - 1);
 				$start_index = $i;
 				$cur_year = $year;
@@ -108,7 +104,7 @@
 			}
 			else if ($i == $num_games - 1)
 			{
-				echo "<h3><a name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
+				echo "<h3><a class='anchor_ref' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
 				draw_table($start_index, $i);
 				$start_index = $i;
 				$cur_year = $year;
