@@ -90,7 +90,7 @@
 		echo "<div id='block_years'>[ ";
 		for ($i = $year_start; $i >= $year_end; $i--)
 		{
-			echo "<p class='year_link' href='#anchor_".$i."'>".$i."</p>";
+			echo "<a class='year_link' href='#anchor_".$i."'>".$i."</a>";
 			if ($i > $year_end)
 				echo " ";
 		}
@@ -106,7 +106,7 @@
 			
 			if ($year != $cur_year)
 			{
-				echo "<div class='block_year'><h3><a class='year_anchor' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
+				echo "<div class='block_year'><h3><p class='year_anchor' name='anchor_".$cur_year."'>".$cur_year." год</p></h3><br>";
 				draw_table($start_index, $i - 1);
 				$start_index = $i;
 				$cur_year = $year;
@@ -114,7 +114,7 @@
 			}
 			else if ($i == $num_games - 1)
 			{
-				echo "<div class='block_year'><h3><a class='year_anchor' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
+				echo "<div class='block_year'><h3><p class='year_anchor' name='anchor_".$cur_year."'>".$cur_year." год</p></h3><br>";
 				draw_table($start_index, $i);
 				$start_index = $i;
 				$cur_year = $year;
