@@ -96,7 +96,7 @@
 			
 			if ($year != $cur_year)
 			{
-				echo "<h3><a class='anchor_ref' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
+				echo "<h3><a class='pagerLink' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
 				draw_table($start_index, $i - 1);
 				$start_index = $i;
 				$cur_year = $year;
@@ -104,7 +104,7 @@
 			}
 			else if ($i == $num_games - 1)
 			{
-				echo "<h3><a class='anchor_ref' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
+				echo "<h3><a class='pagerLink' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
 				draw_table($start_index, $i);
 				$start_index = $i;
 				$cur_year = $year;

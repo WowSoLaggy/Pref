@@ -19,8 +19,9 @@ a:hover
 	color: white;
 	text-decoration: underline;
 }
-.anchor_ref
+.pagerLink
 {
+	border: 1px solid red;
 	color: white;
 	text-decoration: none !important;
 }
