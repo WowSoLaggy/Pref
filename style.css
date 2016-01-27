@@ -25,7 +25,12 @@ body.menu
 {
 	float: left;
 	position: relative;
+	width: 150;
 	left: 40px;
+}
+#logo_title
+{
+	padding-top: 1px;
 }
 
 h1, h2, h3

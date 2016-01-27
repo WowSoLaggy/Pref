@@ -7,6 +7,6 @@
 	
 	<body class="dark">
 		<div id='logo_block'><img id='logo' src="images/kand.png"></div>
-		<h1 align=center>Клуб "Паровоз Козлова"</h1>
+		<div id='logo_title'><h1 align=center>Клуб "Паровоз Козлова"</h1></div>
 	</body>
 </html>
