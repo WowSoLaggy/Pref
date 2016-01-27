@@ -94,7 +94,7 @@
 			if ($i > $year_end)
 				echo " ";
 		}
-		echo " ]</div><br>";
+		echo " ]</div>";
 		
 		// Output games year-by-year
 		
@@ -106,19 +106,19 @@
 			
 			if ($year != $cur_year)
 			{
-				echo "<h3><a name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
+				echo "<div><h3><a name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
 				draw_table($start_index, $i - 1);
 				$start_index = $i;
 				$cur_year = $year;
-				echo "<br>";
+				echo "<br></div>";
 			}
 			else if ($i == $num_games - 1)
 			{
-				echo "<h3><a name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
+				echo "<div><h3><a name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
 				draw_table($start_index, $i);
 				$start_index = $i;
 				$cur_year = $year;
-				echo "<br>";
+				echo "<br></div>";
 			}
 		}
 

@@ -41,13 +41,19 @@ p
 	border-bottom: 2px solid #ffffff;
 	text-decoration: none;
 }
+.year_anchor:hover
+{
+	text-decoration: none;
+}
 
 #block_games_title
 {
+	margin: 10px;
 	float: left;
 }
 #block_years
 {
+	margin: 10px;
 	float: left;
 	font-size: 15px;
 }
