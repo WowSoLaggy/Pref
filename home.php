@@ -22,8 +22,8 @@
 			<tr><td width=220 align=left>Всего сыграно игр:</td><td>'.$num_games.'</td></tr>
 			<tr><td>Общая длина всех пуль:</td><td>'.$total.'</td></tr>
 			<tr><td>Всего участвовало игроков:</td><td>'.$num_players.'</td></tr>
-			<tr><td>Наибольшая победа:</td><td>'.$max_win.'</td></tr>
-			<tr><td>Наибольший проигрыш:</td><td>'.$max_loss.'</td></tr>
+			<tr><td>Наибольшая победа:</td><td>'.round($max_win).'</td></tr>
+			<tr><td>Наибольший проигрыш:</td><td>'.round($max_loss).'</td></tr>
 			<tr><td>Наибольшая гора:</td><td>'.$max_hill.'</td></tr>
 			</table></div>';
 		
