@@ -50,14 +50,14 @@ p
 {
 	border: 1px solid red;
 	margin: 10px;
-	width: 160px;
+	text-align: left;
 }
 #block_years
 {
 	border: 1px solid red;
 	margin: 10px;
 	font-size: 15px;
-	width: 200px;
+	text-align: left;
 }
 .block_year
 {
