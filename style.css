@@ -110,3 +110,9 @@ p
 	border: 2px solid #003300;
 	margin: 5px 5px 5px 15px;
 }
+
+.game_index_label
+{
+	padding-top: 25px;
+	padding-bottom: 25px;
+}
