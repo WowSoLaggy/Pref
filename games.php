@@ -16,7 +16,7 @@
 			echo '<table border="1"><td><th width=60>Пуля</th><th width=170>Игрок 1</th><th width=170>Игрок 2</th><th width=170>Игрок 3</th><th width=170>Игрок 4</th><th width=100>Дата</th></td>';
 			for ($i = $startIndex; $i <= $endIndex; $i++)
 			{
-				echo "<tr valign=center><td width=20 align=center>".($num_games - $i).
+				echo "<a href='google.com'><tr valign=center><td width=30 align=center>".($num_games - $i).
 				"</td><td align=center>".$games[$i]['total'].
 				"</td><td";
 				
@@ -73,7 +73,7 @@
 					echo ">";
 				
 				echo "</td><td align=center>".$games[$i]['date'].
-				"</td></tr>";
+				"</td></tr></a>";
 			}
 			echo '</table>';
 		} // drawTable()
