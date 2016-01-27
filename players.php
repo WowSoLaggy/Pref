@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	
-	<body>
+	<body class="light">
 	
 		<h2>Список игроков</h2>
 		<br>

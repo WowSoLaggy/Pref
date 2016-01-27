@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	
-	<body>
+	<body class="dark">
 		<div align=right>DOHXEHAPO, 2016</div>
 	</body>
 </html>

@@ -1,7 +1,14 @@
 body
 {
-	background: darkgreen;
 	color: white;
+}
+body.light
+{
+	background: darkgreen;
+}
+body.dark
+{
+	background: #005500;
 }
 
 h1, h2, h3

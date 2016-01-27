@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	
-	<body>
+	<body class="dark">
 		<img src="images/kand.png"/ align=left>
 		<h1 align=center>Клуб "Паровоз Козлова"</h1>
 	</body>
