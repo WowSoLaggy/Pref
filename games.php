@@ -89,7 +89,7 @@
 		echo "<h2>Список игр [";
 		for ($i = $year_start; $i >= $year_end; $i--)
 		{
-			echo "<a href='#anchor_".$i."'><small>".$i."</small></a>";
+			echo "<a class='huy' href='#anchor_".$i."'><small>".$i."</small></a>";
 			if ($i > $year_end)
 				echo ", ";
 		}
