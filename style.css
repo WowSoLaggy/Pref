@@ -34,11 +34,10 @@ p
 .year_link
 {
 	color: blue;
-	text-decoration: underline;
-	text-decoration-style: dotted;
+	border-bottom: 1px dotted #000;
 }
 .year_link:hover
 {
 	color: red;
-	text-decoration: underline;
+	border-bottom: 1px solid #000;
 }
