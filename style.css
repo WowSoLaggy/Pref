@@ -21,8 +21,8 @@ a:hover
 }
 .pagerLink
 {
-	border: 1px solid red;
-	color: white;
+	border: 1px solid red !important;
+	color: red !important;
 	text-decoration: none !important;
 }
 
