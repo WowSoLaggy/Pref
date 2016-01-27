@@ -90,7 +90,7 @@
 		echo "<div id='block_years'>[ ";
 		for ($i = $year_start; $i >= $year_end; $i--)
 		{
-			echo "<a class='year_link' href='#anchor_".$i."'>".$i."</a>";
+			echo "<p class='year_link' href='#anchor_".$i."'>".$i."</p>";
 			if ($i > $year_end)
 				echo " ";
 		}
