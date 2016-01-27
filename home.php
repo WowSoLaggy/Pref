@@ -8,7 +8,6 @@
 	<body class="light">
 	
 		<h2>Главная страница</h2>
-		<br>
 		
 		<?php
 		
