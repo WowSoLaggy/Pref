@@ -23,7 +23,7 @@ a:hover
 {
 	border: 1px solid red !important;
 	color: red !important;
-	text-decoration: none !important;
+	text-decoration: underline !important;
 }
 
 p
