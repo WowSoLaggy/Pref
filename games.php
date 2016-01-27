@@ -92,18 +92,17 @@
 		$start_index = 0;
 		for ($i = 0; $i < $num_games; $i++)
 		{
-			$fyear = date_parse($games[0]['date'])['year']);
-			echo $fyear."<br>";
+			$year = date_parse($games[0]['date'])['year'];
 			
-			//if ($year != $cur_year)
+			if ($year != $cur_year)
 			{
-				//draw_table($start_index, $i - 1);
-				//$start_index = $i;
+				draw_table($start_index, $i - 1);
+				$start_index = $i;
 			}
-			//else if ($i == $num_games - 1)
+			else if ($i == $num_games - 1)
 			{
-				//draw_table($start_index, $i);
-				//$start_index = $i;
+				draw_table($start_index, $i);
+				$start_index = $i;
 			}
 		}
 
