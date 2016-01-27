@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Ром с колой и преферансом</title>
+		<title>Клуб "Ром с колой и преферансом"</title>
 		<meta charset="utf-8"/>
 	</head>
 	
