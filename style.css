@@ -33,5 +33,6 @@ p
 
 .year_link
 {
-	color: red;
+	color: blue;
+	text-decoration: underline dotted;
 }
