@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Клуб "Ром с колой и преферансом"</title>
+		<title>Клуб "Паровоз Козлова"</title>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
