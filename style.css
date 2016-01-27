@@ -49,14 +49,14 @@ p
 #block_games_title
 {
 	border: 1px solid red;
-	width: 150px;
+	width: 140px;
 }
 #block_years
 {
 	border: 1px solid red;
 	font-size: 15px;
 	width: 200px;
-	position: absolute;
+	position: relative;
 	left: 170px;
 	top: 20px;
 }
