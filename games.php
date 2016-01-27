@@ -6,6 +6,7 @@
 	</head>
 	
 	<body>
+	<div class="content">
 	
 		<?php
 		
@@ -123,6 +124,7 @@
 		}
 
 		?>
-		
+	
+	</div>
 	</body>
 </html>
