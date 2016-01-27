@@ -6,7 +6,6 @@
 	</head>
 	
 	<body>
-	<div class="content">
 	
 		<h2>Главная страница</h2>
 		<br>
@@ -49,7 +48,6 @@
 		echo '</table></div>';
 		
 		?>
-	
-	</div>
+		
 	</body>
 </html>
