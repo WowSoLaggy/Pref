@@ -87,7 +87,7 @@
 		$year_start = date_parse($games[0]['date'])['year'];
 		$year_end = date_parse($games[$num_games - 1]['date'])['year'];
 		echo "<h2>Список игр [";
-		for ($i = $year_start; $i <= $year_end; $i++)
+		for ($i = $year_start; $i >= $year_end; $i--)
 		{
 			echo "<a href='#anchor_".$i."'>".$i."</a>";
 			if ($i < $year_end)
