@@ -73,7 +73,25 @@
 				else
 					echo ">";
 				
-				echo "</td><td align=center>".$games[$i]['date'].
+				$month_rus = "";
+				$month_ind = date_parse($games[$i]['date'])['money'];
+				switch ($month_ind)
+				{
+					case 1: $month_rus = "янв"; break;
+					case 2: $month_rus = "фев"; break;
+					case 3: $month_rus = "мар"; break;
+					case 4: $month_rus = "апр"; break;
+					case 5: $month_rus = "май"; break;
+					case 6: $month_rus = "июн"; break;
+					case 7: $month_rus = "июл"; break;
+					case 8: $month_rus = "авг"; break;
+					case 9: $month_rus = "сен"; break;
+					case 10: $month_rus = "окт"; break;
+					case 11: $month_rus = "ноя"; break;
+					case 12: $month_rus = "дек"; break;
+				}
+				
+				echo "</td><td align=center>".date_parse($games[$i]['date'])['day']." ".$month_rus." ".date_parse($games[$i]['date'])['year'].
 				"</td></tr>";
 			}
 			echo '</table>';
