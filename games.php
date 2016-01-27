@@ -96,12 +96,14 @@
 			
 			if ($year != $cur_year)
 			{
+				echo "<h3>".$cur_year." год</h3><br>";
 				draw_table($start_index, $i - 1);
 				$start_index = $i;
 				$cur_year = $year;
 			}
 			else if ($i == $num_games - 1)
 			{
+				echo "<h3>".$cur_year." год</h3><br>";
 				draw_table($start_index, $i);
 				$start_index = $i;
 				$cur_year = $year;
