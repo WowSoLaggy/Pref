@@ -1,6 +1,6 @@
 <html>
 	<head>
-		<title>Клуб анонимных преферансистов</title>
+		<title>Ром с колой и преферансом</title>
 		<meta charset="utf-8"/>
 	</head>
 	
