@@ -99,3 +99,9 @@ p
 {
 	border: 10px solid #003300;
 }
+
+.menu_image
+{
+	border: 2px solid #003300;
+	margin: 5px 5px 5px 15px;
+}

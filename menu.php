@@ -6,13 +6,11 @@
 	</head>
 	
 	<body class="menu">
-		<br>
-		Меню сайта:
-		<br>
-		<ul>
-			<li><a href="home.php" target="content">Главная</a></li>
-			<li><a href="players.php" target="content">Игроки</a></li>
-			<li><a href="games.php" target="content">Игры</a></li>
-		</ul>
+	
+		<div><img style="margin: 10px 0px 15px 0px;" src="images/menu.png"></div>
+		<div><a href="home.php" target="content"><img class="menu_image" src="images/btn_menu_main.png"></a></div>
+		<div><a href="players.php" target="content"><img class="menu_image" src="images/btn_menu_players.png"></a></div>
+		<div><a href="games.php" target="content"><img class="menu_image" src="images/btn_menu_games.png"></a></div>
+
 	</body>
 </html>
