@@ -88,14 +88,24 @@
 		
 		// Output games year-by-year
 		
-		$cur_year = $games[0]['date'];
+		$cur_year = date_parse($games[0]['date'])['year'];
+		$start_index = 0;
 		for ($i = 0; $i < $num_games; $i++)
 		{
-			echo(date_parse($games[$i]['date'])['year']."<br>");
+			$year = date_parse($games[$i]['date'])['year']);
+			
+			if ($year != $cur_year)
+			{
+				draw_table($start_index, $i - 1);
+				$start_index = $i;
+			}
+			else if (&i == $num_games - 1)
+			{
+				draw_table($start_index, $i);
+				$start_index = $i;
+			}
 		}
-		
-		draw_table(0, $num_games);
-		
+
 		?>
 		
 	</body>
