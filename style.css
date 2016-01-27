@@ -33,15 +33,16 @@ p
 
 .year_link
 {
-	color: blue;
-	font-size: 10px;
 	border-bottom: 2px dotted #ffffff;
 	text-decoration: none;
 }
 .year_link:hover
 {
-	color: red;
-	font-size: 20px;
 	border-bottom: 2px solid #ffffff;
 	text-decoration: none;
+}
+
+#years_links
+{
+	font-size: 15px;
 }
