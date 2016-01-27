@@ -10,6 +10,11 @@ body.dark
 {
 	background: #005500;
 }
+body.menu
+{
+	background: darkgreen;
+	border-right: 4px solid #005500;
+}
 
 h1, h2, h3
 {

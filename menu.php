@@ -5,7 +5,7 @@
 		<link rel="stylesheet" type="text/css" href="style.css">
 	</head>
 	
-	<body class="light">
+	<body class="menu">
 		<br>
 		Меню сайта:
 		<br>
