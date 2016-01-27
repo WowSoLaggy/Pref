@@ -42,7 +42,12 @@ p
 	text-decoration: none;
 }
 
-#years_links
+#block_games_title
 {
+	float: left;
+}
+#block_years
+{
+	float: left;
 	font-size: 15px;
 }

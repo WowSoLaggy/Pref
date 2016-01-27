@@ -86,14 +86,15 @@
 		
 		$year_start = date_parse($games[0]['date'])['year'];
 		$year_end = date_parse($games[$num_games - 1]['date'])['year'];
-		echo "<h2>Список игр <p id='years_links'>[";
+		echo "<div id='block_games_title'><h2>Список игр</h2></div>";
+		echo "<div id='block_years'>[ ";
 		for ($i = $year_start; $i >= $year_end; $i--)
 		{
 			echo "<a class='year_link' href='#anchor_".$i."'>".$i."</a>";
 			if ($i > $year_end)
-				echo ", ";
+				echo " ";
 		}
-		echo "]</p></h2><br>";
+		echo " ]</div><br>";
 		
 		// Output games year-by-year
 		
