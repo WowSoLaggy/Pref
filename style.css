@@ -16,6 +16,18 @@ body.menu
 	border-right: 4px solid #005500;
 }
 
+#logo
+{
+	width: 85;
+	height: 85;
+}
+#logo_block
+{
+	float: left;
+	position: relative;
+	left: 40px;
+}
+
 h1, h2, h3
 {
 	color: white;
