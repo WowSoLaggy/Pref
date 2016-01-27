@@ -92,8 +92,8 @@
 		$start_index = 0;
 		for ($i = 0; $i < $num_games; $i++)
 		{
-			$year = date_parse($games[$i]['date'])['year']);
-			echo $year."<br>";
+			$fyear = date_parse($games[0]['date'])['year']);
+			echo $fyear."<br>";
 			
 			//if ($year != $cur_year)
 			{
