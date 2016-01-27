@@ -35,9 +35,11 @@ p
 {
 	color: blue;
 	border-bottom: 1px dotted #000;
+	text-decoration: none;
 }
 .year_link:hover
 {
 	color: red;
 	border-bottom: 1px solid #000;
+	text-decoration: none;
 }
