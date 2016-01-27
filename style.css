@@ -48,17 +48,20 @@ p
 
 #block_games_title
 {
+	border: 1px solid red;
 	margin: 10px;
 	float: left;
 }
 #block_years
 {
+	border: 1px solid red;
 	margin: 10px;
 	float: left;
 	font-size: 15px;
 }
 .block_year
 {
+	border: 1px solid red;
 	margin: 10px;
 	float: none;
 }
