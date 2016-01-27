@@ -57,3 +57,8 @@ p
 	float: left;
 	font-size: 15px;
 }
+.block_year
+{
+	margin: 10px;
+	float: none;
+}
