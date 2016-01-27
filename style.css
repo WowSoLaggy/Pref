@@ -65,17 +65,17 @@ p
 	border: 4px solid #005500;
 }
 
-.year_link
+.anchor_link
 {
 	border-bottom: 2px dotted #ffffff;
 	text-decoration: none;
 }
-.year_link:hover
+.anchor_link:hover
 {
 	border-bottom: 2px solid #ffffff;
 	text-decoration: none;
 }
-.year_anchor:hover
+.anchor:hover
 {
 	text-decoration: none;
 }

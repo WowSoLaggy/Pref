@@ -42,8 +42,14 @@ $result = mysql_query("SELECT * FROM games_tbl ORDER BY date DESC");
 $num_games = mysql_num_rows($result);
 $total = 0;
 $max_win = 0;
+$max_win_ind = 0;
+$max_win_player = 0;
 $max_loss = 0;
+$max_loss_ind = 0;
+$max_loss_player = 0;
 $max_hill = 0;
+$max_hill_ind = 0;
+$max_hill_player = 0;
 for ($i = 0; $i < $num_games; $i++)
 {
 	$games[$i]['id'] = mysql_result($result, $i, 'id');
@@ -140,11 +146,23 @@ for ($i = 0; $i < $num_games; $i++)
 	
 	// Global stats
 	if ($score > $max_win)
+	{
 		$max_win = $score;
+		$max_win_ind = $i;
+		$max_win_player = $games[$i]['1_name'];
+	}
 	if ($score < $max_loss)
+	{
 		$max_loss = $score;
+		$max_loss_ind = $i;
+		$max_loss_player = $games[$i]['1_name'];
+	}
 	if ($games[$i]['1_hill'] > $max_hill)
+	{
 		$max_hill = $games[$i]['1_hill'];
+		$max_hill_ind = $i;
+		$max_hill_player = $games[$i]['1_name'];
+	}
 	
 	// 2
 	
@@ -190,11 +208,23 @@ for ($i = 0; $i < $num_games; $i++)
 	
 	// Global stats
 	if ($score > $max_win)
+	{
 		$max_win = $score;
+		$max_win_ind = $i;
+		$max_win_player = $games[$i]['2_name'];
+	}
 	if ($score < $max_loss)
+	{
 		$max_loss = $score;
+		$max_loss_ind = $i;
+		$max_loss_player = $games[$i]['2_name'];
+	}
 	if ($games[$i]['2_hill'] > $max_hill)
+	{
 		$max_hill = $games[$i]['2_hill'];
+		$max_hill_ind = $i;
+		$max_hill_player = $games[$i]['2_name'];
+	}
 	
 	// 3
 	
@@ -240,11 +270,23 @@ for ($i = 0; $i < $num_games; $i++)
 	
 	// Global stats
 	if ($score > $max_win)
+	{
 		$max_win = $score;
+		$max_win_ind = $i;
+		$max_win_player = $games[$i]['3_name'];
+	}
 	if ($score < $max_loss)
+	{
 		$max_loss = $score;
+		$max_loss_ind = $i;
+		$max_loss_player = $games[$i]['3_name'];
+	}
 	if ($games[$i]['3_hill'] > $max_hill)
+	{
 		$max_hill = $games[$i]['3_hill'];
+		$max_hill_ind = $i;
+		$max_hill_player = $games[$i]['3_name'];
+	}
 	
 	if ($play4)
 	{
@@ -290,11 +332,23 @@ for ($i = 0; $i < $num_games; $i++)
 		
 		// Global stats
 		if ($score > $max_win)
+		{
 			$max_win = $score;
+			$max_win_ind = $i;
+			$max_win_player = $games[$i]['4_name'];
+		}
 		if ($score < $max_loss)
+		{
 			$max_loss = $score;
+			$max_loss_ind = $i;
+			$max_loss_player = $games[$i]['4_name'];
+		}
 		if ($games[$i]['4_hill'] > $max_hill)
+		{
 			$max_hill = $games[$i]['4_hill'];
+			$max_hill_ind = $i;
+			$max_hill_player = $games[$i]['4_name'];
+		}
 	}
 }
 mysql_free_result($result);
