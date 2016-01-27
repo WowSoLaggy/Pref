@@ -31,10 +31,10 @@
 				echo " bgcolor=#664400";
 			
 			echo "><img src='images/".$players[$games[$i]['1_name']]['image'].
-			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".
+			"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
 			round($games[$i]['1_score']).
-			"<br>Гора: ".$games[$i]['1_hill'].
-			"<br>Висты: ".$games[$i]['1_money']."</p>".
+			"</b><br><small>Гора: ".$games[$i]['1_hill'].
+			"<br>Висты: ".$games[$i]['1_money']."</small></p>".
 			"</td><td";
 			
 			if ($games[$i]['2_score'] > 0)
@@ -43,10 +43,10 @@
 				echo " bgcolor=#664400";
 			
 			echo "><img src='images/".$players[$games[$i]['2_name']]['image'].
-			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".
+			"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
 			round($games[$i]['2_score']).
-			"<br>Гора: ".$games[$i]['2_hill'].
-			"<br>Висты: ".$games[$i]['2_money']."</p>".
+			"</b><br><small>Гора: ".$games[$i]['2_hill'].
+			"<br>Висты: ".$games[$i]['2_money']."</small></p>".
 			"</td><td";
 			
 			if ($games[$i]['3_score'] > 0)
@@ -55,10 +55,10 @@
 				echo " bgcolor=#664400";
 			
 			echo "><img src='images/".$players[$games[$i]['3_name']]['image'].
-			"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".
+			"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
 			round($games[$i]['3_score']).
-			"<br>Гора: ".$games[$i]['3_hill'].
-			"<br>Висты: ".$games[$i]['3_money']."</p>".
+			"</b><br><small>Гора: ".$games[$i]['3_hill'].
+			"<br>Висты: ".$games[$i]['3_money']."</small></p>".
 			"</td><td";
 			
 			if ($games[$i]['num_players'] == 4)
@@ -69,10 +69,10 @@
 					echo " bgcolor=#664400";
 			
 				echo "><img src='images/".$players[$games[$i]['4_name']]['image'].
-				"' align=left hspace=10 vspace=10 width=50><p>Счёт: ".
+				"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
 				round($games[$i]['4_score']).
-				"<br>Гора: ".$games[$i]['4_hill'].
-				"<br>Висты: ".$games[$i]['4_money']."</p>";
+				"</b><br><small>Гора: ".$games[$i]['4_hill'].
+				"<br>Висты: ".$games[$i]['4_money']."</small></p>";
 			}
 			else
 				echo ">";
