@@ -74,7 +74,7 @@
 					echo ">";
 				
 				$month_rus = "";
-				$month_ind = date_parse($games[$i]['date'])['money'];
+				$month_ind = date_parse($games[$i]['date'])['month'];
 				switch ($month_ind)
 				{
 					case 1: $month_rus = "янв"; break;
