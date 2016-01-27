@@ -15,17 +15,6 @@
 		
 		include('calculations.php');
 		
-		// Output stat
-		
-		echo '<div id="block_stat"><h3>Общая статистика</h3><table border="0">
-			<tr><td width=220 align=left>Всего сыграно игр:</td><td>'.$num_games.'</td></tr>
-			<tr><td>Общая длина всех пуль:</td><td>'.$total.'</td></tr>
-			<tr><td>Всего участвовало игроков:</td><td>'.$num_players.'</td></tr>
-			<tr><td>Наибольшая победа:</td><td><a class="anchor_link" href="games.php#anchor_game_'.($num_games - $max_win_ind).'">'.round($max_win).'</a></td></tr>
-			<tr><td>Наибольший проигрыш:</td><td><a class="anchor_link" href="games.php#anchor_game_'.($num_games - $max_loss_ind).'">'.round($max_loss).'</a></td></tr>
-			<tr><td>Наибольшая гора:</td><td><a class="anchor_link" href="games.php#anchor_game_'.($num_games - $max_hill_ind).'">'.$max_hill.'</a></td></tr>
-			</table></div>';
-		
 		// Output Top-players
 		
 		$players_sorted = $players;
@@ -45,6 +34,20 @@
 			"</td><td width=100 align=center>".round($players_sorted[$i]['score'])."</td></tr>";
 		}
 		echo '</table></div>';
+		
+		// Output stat
+		
+		echo '<div id="block_stat"><h3>Общая статистика</h3><table border="0">
+			<tr><td width=220 align=left>Всего сыграно игр:</td><td>'.$num_games.'</td></tr>
+			<tr><td>Общая длина всех пуль:</td><td>'.$total.'</td></tr>
+			<tr><td>Всего участвовало игроков:</td><td>'.$num_players.'</td></tr>
+			<tr><td>Наибольшая победа:</td><td><a class="anchor_link" href="games.php#anchor_game_'.
+			($num_games - $max_win_ind).'">'.round($max_win).' ('.$players[$max_win_player]['name'].')</a></td></tr>
+			<tr><td>Наибольший проигрыш:</td><td><a class="anchor_link" href="games.php#anchor_game_'.
+			($num_games - $max_loss_ind).'">'.round($max_loss).' ('.$players[$max_loss_player]['name'].')</a></td></tr>
+			<tr><td>Наибольшая гора:</td><td><a class="anchor_link" href="games.php#anchor_game_'.
+			($num_games - $max_hill_ind).'">'.$max_hill.' ('.$players[$max_hill_player]['name'].')</a></td></tr>
+			</table></div>';
 		
 		?>
 		
