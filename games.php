@@ -86,7 +86,13 @@
 		
 		include('calculations.php');
 		
-		// Output games
+		// Output games year-by-year
+		
+		$cur_year = $games[0]['date'];
+		for ($i = 0; $i < $num_games; $i++)
+		{
+			echo(date_parse($games[$i]['date'])['year']."<br>");
+		}
 		
 		draw_table(0, $num_games);
 		
