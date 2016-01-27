@@ -12,6 +12,10 @@
 		
 		<?php
 		
+		// Calculate players and games
+		
+		include('calculations.php');
+		
 		function draw_table($startIndex, $endIndex)
 		{
 			echo '<table border="1"><td><th width=60>Пуля</th><th width=170>Игрок 1</th><th width=170>Игрок 2</th><th width=170>Игрок 3</th><th width=170>Игрок 4</th><th width=150>Дата</th></td>';
@@ -78,10 +82,6 @@
 			}
 			echo '</table>';
 		} // drawTable()
-		
-		// Calculate players and games
-		
-		include('calculations.php');
 		
 		// Output games
 		
