@@ -90,7 +90,7 @@
 		
 		$cur_year = date_parse($games[0]['date'])['year'];
 		$start_index = 0;
-		//for ($i = 0; $i < $num_games; $i++)
+		for ($i = 0; $i < $num_games; $i++)
 		{
 			//$year = date_parse($games[$i]['date'])['year']);
 			$year = 0;
