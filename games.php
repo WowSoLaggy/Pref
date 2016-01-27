@@ -99,7 +99,7 @@
 				draw_table($start_index, $i - 1);
 				$start_index = $i;
 			}
-			else if (&i == $num_games - 1)
+			else if ($i == $num_games - 1)
 			{
 				draw_table($start_index, $i);
 				$start_index = $i;
