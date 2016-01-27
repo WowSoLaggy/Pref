@@ -50,6 +50,7 @@ p
 {
 	border: 1px solid red;
 	width: 140px;
+	margin: 0px;
 }
 #block_years
 {
@@ -58,10 +59,11 @@ p
 	width: 200px;
 	position: absolute;
 	left: 170px;
-	top: 20px;
+	top: 30px;
+	margin: 0px;
 }
 .block_year
 {
 	border: 1px solid red;
-	margin: 10px;
+	margin: 0px;
 }
