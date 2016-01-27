@@ -7,9 +7,6 @@
 	
 	<body>
 	
-		<h2>Список игр</h2>
-		<br>
-		
 		<?php
 		
 		function draw_table($startIndex, $endIndex)
@@ -17,7 +14,7 @@
 			global $players, $games, $num_games;
 		
 			echo '<table border="1"><td><th width=60>Пуля</th><th width=170>Игрок 1</th><th width=170>Игрок 2</th><th width=170>Игрок 3</th><th width=170>Игрок 4</th><th width=150>Дата</th></td>';
-			for ($i = $startIndex; $i < $endIndex; $i++)
+			for ($i = $startIndex; $i <= $endIndex; $i++)
 			{
 				echo "<tr valign=center><td width=20 align=center>".($num_games - $i).
 				"</td><td align=center>".$games[$i]['total'].
@@ -86,6 +83,18 @@
 		
 		include('calculations.php');
 		
+		
+		$year_start = date_parse($games[0]['date'])['year'];
+		$year_end = date_parse($games[$num_games - 1]['date'])['year'];
+		echo "<h2>Список игр [";
+		for ($i = $year_start; $i <= $year_end; $i++)
+		{
+			echo "<a href='#anchor_".$i."'>".$i."</a>";
+			if ($i < $year_end)
+				echo ", ";
+		}
+		echo "]</h2><br>";
+		
 		// Output games year-by-year
 		
 		$cur_year = date_parse($games[0]['date'])['year'];
@@ -96,7 +105,7 @@
 			
 			if ($year != $cur_year)
 			{
-				echo "<h3><a class='pagerLink' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
+				echo "<h3><a name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
 				draw_table($start_index, $i - 1);
 				$start_index = $i;
 				$cur_year = $year;
@@ -104,7 +113,7 @@
 			}
 			else if ($i == $num_games - 1)
 			{
-				echo "<h3><a class='pagerLink' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
+				echo "<h3><a name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
 				draw_table($start_index, $i);
 				$start_index = $i;
 				$cur_year = $year;

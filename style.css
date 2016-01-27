@@ -19,12 +19,6 @@ a:hover
 	color: white;
 	text-decoration: underline;
 }
-.pagerLink
-{
-	border: 1px solid red !important;
-	color: red !important;
-	text-decoration: underline !important;
-}
 
 p
 {
