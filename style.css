@@ -49,17 +49,16 @@ p
 #block_games_title
 {
 	border: 1px solid red;
-	margin: 10px 10px 10px 10px;
 	width: 160px;
 }
 #block_years
 {
 	border: 1px solid red;
-	margin: 20px 10px 20px 10px;
 	font-size: 15px;
 	width: 200px;
 	position: absolute;
 	left: 160px;
+	top: 50px;
 }
 .block_year
 {
