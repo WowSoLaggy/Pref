@@ -3,8 +3,7 @@
 		<title>Клуб "Паровоз Козлова"</title>
 		<meta charset="utf-8"/>
 		<link rel="stylesheet" type="text/css" href="style.css">
-		<script language="javascript" type="text/javascript" src="jquery/jquery.js"></script>
-		<script language="javascript" type="text/javascript" src="jquery/jquery.flot.js"></script>
+		<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
 		<script type="text/javascript">
 
 		$(function() {
@@ -26,6 +25,8 @@
 
 			$("#footer").prepend("Flot " + $.plot.version + " &ndash; ");
 		});
+		
+		</script>
 	</head>
 	
 	<body class="light">
@@ -33,6 +34,18 @@
 		<h2>Весёлые графики</h2>
 		
 		Тут, кстати, пока ничего нет.
+		
+		<div id="content">
+
+			<div class="demo-container">
+				<div id="placeholder" class="demo-placeholder"></div>
+			</div>
+
+			<p>You don't have to do much to get an attractive plot.  Create a placeholder, make sure it has dimensions (so Flot knows at what size to draw the plot), then call the plot function with your data.</p>
+
+			<p>The axes are automatically scaled.</p>
+
+		</div>
 		
 	</body>
 </html>
