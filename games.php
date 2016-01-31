@@ -16,9 +16,9 @@
 			echo '<table border="1"><td><th width=60>Пуля</th><th width=170>Игрок 1</th><th width=170>Игрок 2</th><th width=170>Игрок 3</th><th width=170>Игрок 4</th><th width=100>Дата</th></td>';
 			for ($i = $startIndex; $i <= $endIndex; $i++)
 			{
-				//echo "<tr valign=center><td width=30 align=center><a class='anchor' name='anchor_game_".($num_games - $i).
-				echo "<tr valign=center><td width=30 align=center><a class='anchor' name='anchor_game_".$games[$i]['id'].
-				"'><div class='game_index_label'>".($num_games - $i).
+				echo "<tr valign=center><td width=30 align=center><a class='anchor' name='anchor_game_".($num_games - $i).
+				//"'><div class='game_index_label'>".($num_games - $i).
+				"'><div class='game_index_label'>".$games[$i]['id'].
 				"</div></a></td><td align=center>".$games[$i]['total'].
 				"</td><td";
 				
