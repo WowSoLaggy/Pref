@@ -50,6 +50,9 @@ $max_loss_player = 0;
 $max_hill = 0;
 $max_hill_ind = 0;
 $max_hill_player = 0;
+$min_hill = 0;
+$min_hill_ind = 0;
+$min_hill_player = 0;
 for ($i = 0; $i < $num_games; $i++)
 {
 	$games[$i]['id'] = mysql_result($result, $i, 'id');
@@ -163,6 +166,12 @@ for ($i = 0; $i < $num_games; $i++)
 		$max_hill_ind = $i;
 		$max_hill_player = $games[$i]['1_name'];
 	}
+	if ($games[$i]['1_hill'] < $min_hill)
+	{
+		$min_hill = $games[$i]['1_hill'];
+		$min_hill_ind = $i;
+		$min_hill_player = $games[$i]['1_name'];
+	}
 	
 	// 2
 	
@@ -224,6 +233,12 @@ for ($i = 0; $i < $num_games; $i++)
 		$max_hill = $games[$i]['2_hill'];
 		$max_hill_ind = $i;
 		$max_hill_player = $games[$i]['2_name'];
+	}
+	if ($games[$i]['2_hill'] < $min_hill)
+	{
+		$min_hill = $games[$i]['2_hill'];
+		$min_hill_ind = $i;
+		$min_hill_player = $games[$i]['2_name'];
 	}
 	
 	// 3
@@ -287,6 +302,12 @@ for ($i = 0; $i < $num_games; $i++)
 		$max_hill_ind = $i;
 		$max_hill_player = $games[$i]['3_name'];
 	}
+	if ($games[$i]['3_hill'] < $min_hill)
+	{
+		$min_hill = $games[$i]['3_hill'];
+		$min_hill_ind = $i;
+		$min_hill_player = $games[$i]['3_name'];
+	}
 	
 	if ($play4)
 	{
@@ -348,6 +369,12 @@ for ($i = 0; $i < $num_games; $i++)
 			$max_hill = $games[$i]['4_hill'];
 			$max_hill_ind = $i;
 			$max_hill_player = $games[$i]['4_name'];
+		}
+		if ($games[$i]['4_hill'] < $min_hill)
+		{
+			$min_hill = $games[$i]['4_hill'];
+			$min_hill_ind = $i;
+			$min_hill_player = $games[$i]['4_name'];
 		}
 	}
 }

@@ -47,6 +47,8 @@
 			($num_games - $max_loss_ind).'">'.round($max_loss).' ('.$players[$max_loss_player]['name'].')</a></td></tr>
 			<tr><td>Наибольшая гора:</td><td><a class="anchor_link" href="games.php#anchor_game_'.
 			($num_games - $max_hill_ind).'">'.$max_hill.' ('.$players[$max_hill_player]['name'].')</a></td></tr>
+			<tr><td>Наименьшая гора:</td><td><a class="anchor_link" href="games.php#anchor_game_'.
+			($num_games - $min_hill_ind).'">'.$min_hill.' ('.$players[$min_hill_player]['name'].')</a></td></tr>
 			</table></div>';
 		
 		?>
