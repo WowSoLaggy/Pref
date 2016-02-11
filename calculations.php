@@ -6,7 +6,7 @@ $dbUser='root';
 $dbPass='AfterWorld';
 $myConnect = mysql_connect($dbHost, $dbUser, $dbPass);
 mysql_select_db($dbName, $myConnect);
-mysql_query("SET NAMES cp1251;");
+mysql_query("SET NAMES utf8;");
 
 // Get player list
 
