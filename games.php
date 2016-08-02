@@ -23,7 +23,7 @@
 				"</td><td";
 				
 				if ($games[$i]['1_score'] > 0)
-					echo " bgcolor=#4E9A17";
+					echo " bgcolor=#6EBA17";
 				else if ($games[$i]['1_score'] < 0)
 					echo " bgcolor=#9E7A17";
 				
@@ -35,7 +35,7 @@
 				"</td><td";
 				
 				if ($games[$i]['2_score'] > 0)
-					echo " bgcolor=#4E9A17";
+					echo " bgcolor=#6EBA17";
 				else if ($games[$i]['2_score'] < 0)
 					echo " bgcolor=#9E7A17";
 				
@@ -47,7 +47,7 @@
 				"</td><td";
 				
 				if ($games[$i]['3_score'] > 0)
-					echo " bgcolor=#4E9A17";
+					echo " bgcolor=#6EBA17";
 				else if ($games[$i]['3_score'] < 0)
 					echo " bgcolor=#9E7A17";
 				
@@ -61,7 +61,7 @@
 				if ($games[$i]['num_players'] == 4)
 				{
 					if ($games[$i]['4_score'] > 0)
-						echo " bgcolor=#4E9A17";
+						echo " bgcolor=#6EBA17";
 					else if ($games[$i]['4_score'] < 0)
 						echo " bgcolor=#9E7A17";
 				
