@@ -4,16 +4,16 @@ body
 }
 body.light
 {
-	background: darkgreen;
+	background: #6E9A27;
 }
 body.dark
 {
-	background: #005500;
+	background: #97D432;
 }
 body.menu
 {
-	background: darkgreen;
-	border-right: 4px solid #005500;
+	background: #6E9A27;
+	border-right: 4px solid #5E8A27;
 }
 
 #logo
@@ -103,14 +103,14 @@ p
 
 .menu_image
 {
-	border: 2px solid #003300;
+	border: 2px solid #5E8A27;
 	margin: 5px 5px 5px 15px;
 	height: 28;
-	background-color: #005500;
+	background-color: #6E9A27;
 }
 .menu_image:hover
 {
-	background-color: #006400;
+	background-color: #628825;
 }
 
 .game_index_label

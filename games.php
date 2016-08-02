@@ -23,9 +23,9 @@
 				"</td><td";
 				
 				if ($games[$i]['1_score'] > 0)
-					echo " bgcolor=#009900";
+					echo " bgcolor=#4E9A17";
 				else if ($games[$i]['1_score'] < 0)
-					echo " bgcolor=#664400";
+					echo " bgcolor=#9E7A17";
 				
 				echo "><img src='images/".$players[$games[$i]['1_name']]['image'].
 				"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
@@ -35,9 +35,9 @@
 				"</td><td";
 				
 				if ($games[$i]['2_score'] > 0)
-					echo " bgcolor=#009900";
+					echo " bgcolor=#4E9A17";
 				else if ($games[$i]['2_score'] < 0)
-					echo " bgcolor=#664400";
+					echo " bgcolor=#9E7A17";
 				
 				echo "><img src='images/".$players[$games[$i]['2_name']]['image'].
 				"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
@@ -47,9 +47,9 @@
 				"</td><td";
 				
 				if ($games[$i]['3_score'] > 0)
-					echo " bgcolor=#009900";
+					echo " bgcolor=#4E9A17";
 				else if ($games[$i]['3_score'] < 0)
-					echo " bgcolor=#664400";
+					echo " bgcolor=#9E7A17";
 				
 				echo "><img src='images/".$players[$games[$i]['3_name']]['image'].
 				"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
@@ -61,9 +61,9 @@
 				if ($games[$i]['num_players'] == 4)
 				{
 					if ($games[$i]['4_score'] > 0)
-						echo " bgcolor=#009900";
+						echo " bgcolor=#4E9A17";
 					else if ($games[$i]['4_score'] < 0)
-						echo " bgcolor=#664400";
+						echo " bgcolor=#9E7A17";
 				
 					echo "><img src='images/".$players[$games[$i]['4_name']]['image'].
 					"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".

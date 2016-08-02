@@ -11,7 +11,6 @@
 		<div><a href="home.php" target="content"><img class="menu_image" src="images/btn_menu_main.png"></a></div>
 		<div><a href="players.php" target="content"><img class="menu_image" src="images/btn_menu_players.png"></a></div>
 		<div><a href="games.php" target="content"><img class="menu_image" src="images/btn_menu_games.png"></a></div>
-		<div><a href="graphs.php" target="content"><img class="menu_image" src="images/btn_menu_graphs.png"></a></div>
 
 	</body>
 </html>
