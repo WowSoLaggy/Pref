@@ -18,7 +18,6 @@
 			{
 				echo "<tr valign=center><td width=30 align=center><a class='anchor' name='anchor_game_".($num_games - $i).
 				"'><div class='game_index_label'>".($num_games - $i).
-				//"'><div class='game_index_label'>".$games[$i]['id'].
 				"</div></a></td><td align=center>".$games[$i]['total'].
 				"</td><td";
 				
