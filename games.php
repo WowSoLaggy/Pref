@@ -75,7 +75,8 @@
 					echo ">";
 				
 				$month_rus = "";
-				$month_ind = date_parse($games[$i]['date'])['month'];
+				$date = date_parse($games[$i]['date']);
+				$month_ind = $date['month'];
 				switch ($month_ind)
 				{
 					case 1: $month_rus = "янв"; break;
@@ -92,7 +93,7 @@
 					case 12: $month_rus = "дек"; break;
 				}
 				
-				echo "</td><td align=center>".date_parse($games[$i]['date'])['day']." ".$month_rus." ".date_parse($games[$i]['date'])['year'].
+				echo "</td><td align=center>".$date['day']." ".$month_rus." ".$date['year'].
 				"</td></tr>";
 			}
 			echo '</table>';
@@ -105,8 +106,11 @@
 		
 		// Header
 		
-		$year_start = date_parse($games[0]['date'])['year'];
-		$year_end = date_parse($games[$num_games - 1]['date'])['year'];
+		$first_game_date = date_parse($games[0]['date']);
+		$last_game_date = date_parse($games[$num_games - 1]['date']);
+		
+		$year_start = $first_game_date['year'];
+		$year_end = $last_game_date['year'];
 		echo "<div id='block_games_title'><h2>Список игр</h2></div>";
 		echo "<div id='block_years'>[ ";
 		for ($i = $year_start; $i >= $year_end; $i--)
@@ -119,11 +123,12 @@
 		
 		// Output games year-by-year
 		
-		$cur_year = date_parse($games[0]['date'])['year'];
+		$cur_year = $first_game_date['year'];
 		$start_index = 0;
 		for ($i = 0; $i < $num_games; $i++)
 		{
-			$year = date_parse($games[$i]['date'])['year'];
+			$cur_game_date = date_parse($games[$i]['date']);
+			$year = $cur_game_date['year'];
 			
 			if ($year != $cur_year)
 			{
