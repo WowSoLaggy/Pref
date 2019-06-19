@@ -1,9 +1,14 @@
 <?php
 
-$dbHost='localhost';
-$dbName='pref';
-$dbUser='root';
-$dbPass='AfterWorld';
+// Connect to DB
+
+// Please specify the following vars in the 'security.php' file:
+//$dbHost='my.host.com';
+//$dbName='db_name';
+//$dbUser='db_user';
+//$dbPass='db_pass';
+include('security.php');
+
 $myConnect = mysql_connect($dbHost, $dbUser, $dbPass);
 mysql_select_db($dbName, $myConnect);
 mysql_query("SET NAMES utf8;");
