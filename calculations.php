@@ -27,6 +27,9 @@ for ($i = 0; $i < $num_players; $i++)
 	$players[$i]['games'] = 0;
 	$players[$i]['total'] = 0;
 	$players[$i]['wins'] = 0;
+	$players[$i]['score_min'] = 99999;
+	$players[$i]['score_avg'] = 0;
+	$players[$i]['score_max'] = -99999;
 	$players[$i]['hill_min'] = 99999;
 	$players[$i]['hill_avg'] = 0;
 	$players[$i]['hill_max'] = -99999;
@@ -145,6 +148,10 @@ for ($i = 0; $i < $num_games; $i++)
 	$score += $money;
 	$players[$player_id]['score'] += $score;
 	$games[$i]['1_score'] = $score;
+	if ($score < $players[$player_id]['score_min'])
+		$players[$player_id]['score_min'] = $score;
+	if ($score > $players[$player_id]['score_max'])
+		$players[$player_id]['score_max'] = $score;
 	
 	// Stats
 	$players[$player_id]['games']++;
@@ -216,6 +223,10 @@ for ($i = 0; $i < $num_games; $i++)
 	$score += $money;
 	$players[$player_id]['score'] += $score;
 	$games[$i]['2_score'] = $score;
+	if ($score < $players[$player_id]['score_min'])
+		$players[$player_id]['score_min'] = $score;
+	if ($score > $players[$player_id]['score_max'])
+		$players[$player_id]['score_max'] = $score;
 	
 	// Stats
 	$players[$player_id]['games']++;
@@ -287,6 +298,10 @@ for ($i = 0; $i < $num_games; $i++)
 	$score += $money;
 	$players[$player_id]['score'] += $score;
 	$games[$i]['3_score'] = $score;
+	if ($score < $players[$player_id]['score_min'])
+		$players[$player_id]['score_min'] = $score;
+	if ($score > $players[$player_id]['score_max'])
+		$players[$player_id]['score_max'] = $score;
 	
 	// Stats
 	$players[$player_id]['games']++;
@@ -358,6 +373,10 @@ for ($i = 0; $i < $num_games; $i++)
 		$score += $money;
 		$players[$player_id]['score'] += $score;
 		$games[$i]['4_score'] = $score;
+		if ($score < $players[$player_id]['score_min'])
+			$players[$player_id]['score_min'] = $score;
+		if ($score > $players[$player_id]['score_max'])
+			$players[$player_id]['score_max'] = $score;
 		
 		// Stats
 		$players[$player_id]['games']++;
@@ -400,6 +419,7 @@ mysql_close($myConnect);
 
 for ($i = 0; $i < $num_players; $i++)
 {
+	$players[$i]['score_avg'] = round($players[$i]['score'] / $players[$i]['games']);
 	$players[$i]['hill_avg'] = round($players[$i]['hill'] / $players[$i]['games']);
 	$players[$i]['money_avg'] = round($players[$i]['money'] / $players[$i]['games']);
 	$players[$i]['money_bal_avg'] = round($players[$i]['money_bal'] / $players[$i]['games']);
