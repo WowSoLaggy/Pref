@@ -6,6 +6,6 @@
 	</head>
 	
 	<body class="dark">
-		<div align=right>DOHXEHAPO, 2016</div>
+		<div align=right>WowSoLaggy, 2016-2019</div>
 	</body>
 </html>
