@@ -2,6 +2,8 @@
 	<head>
 		<title>Клуб "Паровоз Козлова"</title>
 		<meta charset="utf-8"/>
+		<link rel="icon" href="favicon.ico" type="image/ico"/>
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
 	</head>
 	
 	<frameset rows="100, *, 30" border="0" frameborder="0">
