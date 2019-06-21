@@ -137,11 +137,19 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 		$player_id = $games[$game_ind]->{'name_'.$player_ind};
 		$player = &$players[$player_id];
 		
+		// Hill
+		
 		$player_hill = $games[$game_ind]->{'hill_'.$player_ind};
 		$player->hill += $player_hill;
 		$total_hill += $player_hill;
+		
+		// Total
+		
+		$player->total += $games[$game_ind]->total;
 	}
 	$total_hill = $total_hill / $games[$game_ind]->num_players;
+	
+	$total += $games[$game_ind]->total;
 	
 	/////////
 	/////////
@@ -152,14 +160,6 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 	
 	$play4 = ($games[$game_ind]->num_players == 4);
 
-	// Total
-
-	$total += $games[$game_ind]->total;
-	$players[$games[$game_ind]->name_1]->total += $games[$game_ind]->total;
-	$players[$games[$game_ind]->name_2]->total += $games[$game_ind]->total;
-	$players[$games[$game_ind]->name_3]->total += $games[$game_ind]->total;
-	if ($play4)
-		$players[$games[$game_ind]->name_4]->total += $games[$game_ind]->total;
 
 	// 1
 
