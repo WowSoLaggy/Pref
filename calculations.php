@@ -101,10 +101,24 @@ function getGames()
 }
 
 
+function getOpponentsInds($num_players, $own_id)
+{
+	$opponentsIds = array();
+	for ($i = 1; $i <= $num_players; ++$i)
+	{
+		if ($i != $own_id)
+			array_push($opponentsIds, $i);
+	}
+	return $opponentsIds;
+}
+
+
 //
 // MAIN
 //
 
+
+// Get data
 
 $connection = connect();
 
@@ -113,6 +127,8 @@ $num_players = count($players);
 
 $games = getGames();
 $num_games = count($games);
+
+disconnect($connection);
 
 // Parse all games
 
@@ -129,348 +145,116 @@ $max_hill_player = 0;
 $min_hill = 0;
 $min_hill_ind = 0;
 $min_hill_player = 0;
+
 for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 {
-	$total_hill = 0;
-	for ($player_ind = 1; $player_ind <= $games[$game_ind]->num_players; ++$player_ind)
+	$game = &$games[$game_ind];
+	
+	// Total
+	
+	$total += $game->total;
+	
+	// Avg hill (total_hill / num_players)
+	
+	$avg_hill = 0;
+	for ($player_ind = 1; $player_ind <= $game->num_players; ++$player_ind)
+		$avg_hill += $game->{'hill_'.$player_ind};
+	$avg_hill = $avg_hill / $game->num_players;
+	
+	// Fill players stats
+	
+	for ($player_ind = 1; $player_ind <= $game->num_players; ++$player_ind)
 	{
-		$player_id = $games[$game_ind]->{'name_'.$player_ind};
+		$player_id = $game->{'name_'.$player_ind};
 		$player = &$players[$player_id];
-		
-		// Hill
-		
-		$player_hill = $games[$game_ind]->{'hill_'.$player_ind};
-		$player->hill += $player_hill;
-		$total_hill += $player_hill;
 		
 		// Total
 		
-		$player->total += $games[$game_ind]->total;
-	}
-	$total_hill = $total_hill / $games[$game_ind]->num_players;
-	
-	$total += $games[$game_ind]->total;
-	
-	/////////
-	/////////
-	// OLD
-	/////////
-	/////////
-	
-	
-	$play4 = ($games[$game_ind]->num_players == 4);
-
-
-	// 1
-
-	$score = 0;
-	$money = 0;
-	$player_id = $games[$game_ind]->name_1;
-
-	// Money PLUS
-	$money += $games[$game_ind]->money_1_2;
-	$money += $games[$game_ind]->money_1_3;
-	if ($play4)
-		$money += $games[$game_ind]->money_1_4;
-	$players[$player_id]->money += $money;
-	if ($money < $players[$player_id]->money_min)
-		$players[$player_id]->money_min = $money;
-	if ($money > $players[$player_id]->money_max)
-		$players[$player_id]->money_max = $money;
-
-	// Money MINUS
-	$money -= $games[$game_ind]->money_2_1;
-	$money -= $games[$game_ind]->money_3_1;
-	if ($play4)
-		$money -= $games[$game_ind]->money_4_1;
-	$players[$player_id]->balance += $money;
-	$games[$game_ind]->money_1 = $money;
-	if ($money < $players[$player_id]->balance_min)
-		$players[$player_id]->balance_min = $money;
-	if ($money > $players[$player_id]->balance_max)
-		$players[$player_id]->balance_max = $money;
-
-	// Result
-	$score += $total_hill * 10;
-	$score -= $games[$game_ind]->hill_1 * 10;
-	$score += $money;
-	$players[$player_id]->score += $score;
-	$games[$game_ind]->score_1 = $score;
-	if ($score < $players[$player_id]->score_min)
-		$players[$player_id]->score_min = $score;
-	if ($score > $players[$player_id]->score_max)
-		$players[$player_id]->score_max = $score;
-
-	// Stats
-	$players[$player_id]->games++;
-	if ($score > 0)
-		$players[$player_id]->wins++;
-	if ($games[$game_ind]->hill_1 < $players[$player_id]->hill_min)
-		$players[$player_id]->hill_min = $games[$game_ind]->hill_1;
-	if ($games[$game_ind]->hill_1 > $players[$player_id]->hill_max)
-		$players[$player_id]->hill_max = $games[$game_ind]->hill_1;
-
-	// Global stats
-	if ($score > $max_win)
-	{
-		$max_win = $score;
-		$max_win_ind = $game_ind;
-		$max_win_player = $player_id;
-	}
-	if ($score < $max_loss)
-	{
-		$max_loss = $score;
-		$max_loss_ind = $game_ind;
-		$max_loss_player = $player_id;
-	}
-	if ($games[$game_ind]->hill_1 > $max_hill)
-	{
-		$max_hill = $games[$game_ind]->hill_1;
-		$max_hill_ind = $game_ind;
-		$max_hill_player = $player_id;
-	}
-	if ($games[$game_ind]->hill_1 < $min_hill)
-	{
-		$min_hill = $games[$game_ind]->hill_1;
-		$min_hill_ind = $game_ind;
-		$min_hill_player = $player_id;
-	}
-
-	// 2
-
-	$score = 0;
-	$money = 0;
-	$player_id = $games[$game_ind]->name_2;
-
-	// Money PLUS
-	$money += $games[$game_ind]->money_2_1;
-	$money += $games[$game_ind]->money_2_3;
-	if ($play4)
-		$money += $games[$game_ind]->money_2_4;
-	$players[$player_id]->money += $money;
-	if ($money < $players[$player_id]->money_min)
-		$players[$player_id]->money_min = $money;
-	if ($money > $players[$player_id]->money_max)
-		$players[$player_id]->money_max = $money;
-
-	// Money MINUS
-	$money -= $games[$game_ind]->money_1_2;
-	$money -= $games[$game_ind]->money_3_2;
-	if ($play4)
-		$money -= $games[$game_ind]->money_4_2;
-	$players[$player_id]->balance += $money;
-	$games[$game_ind]->money_2 = $money;
-	if ($money < $players[$player_id]->balance_min)
-		$players[$player_id]->balance_min = $money;
-	if ($money > $players[$player_id]->balance_max)
-		$players[$player_id]->balance_max = $money;
-
-	// Result
-	$score += $total_hill * 10;
-	$score -= $games[$game_ind]->hill_2 * 10;
-	$score += $money;
-	$players[$player_id]->score += $score;
-	$games[$game_ind]->score_2 = $score;
-	if ($score < $players[$player_id]->score_min)
-		$players[$player_id]->score_min = $score;
-	if ($score > $players[$player_id]->score_max)
-		$players[$player_id]->score_max = $score;
-
-	// Stats
-	$players[$player_id]->games++;
-	if ($score > 0)
-		$players[$player_id]->wins++;
-	if ($games[$game_ind]->hill_2 < $players[$player_id]->hill_min)
-		$players[$player_id]->hill_min = $games[$game_ind]->hill_2;
-	if ($games[$game_ind]->hill_2 > $players[$player_id]->hill_max)
-		$players[$player_id]->hill_max = $games[$game_ind]->hill_2;
-
-	// Global stats
-	if ($score > $max_win)
-	{
-		$max_win = $score;
-		$max_win_ind = $game_ind;
-		$max_win_player = $player_id;
-	}
-	if ($score < $max_loss)
-	{
-		$max_loss = $score;
-		$max_loss_ind = $game_ind;
-		$max_loss_player = $player_id;
-	}
-	if ($games[$game_ind]->hill_2 > $max_hill)
-	{
-		$max_hill = $games[$game_ind]->hill_2;
-		$max_hill_ind = $game_ind;
-		$max_hill_player = $player_id;
-	}
-	if ($games[$game_ind]->hill_2 < $min_hill)
-	{
-		$min_hill = $games[$game_ind]->hill_2;
-		$min_hill_ind = $game_ind;
-		$min_hill_player = $player_id;
-	}
-
-	// 3
-
-	$score = 0;
-	$money = 0;
-	$player_id = $games[$game_ind]->name_3;
-
-	// Money PLUS
-	$money += $games[$game_ind]->money_3_1;
-	$money += $games[$game_ind]->money_3_2;
-	if ($play4)
-		$money += $games[$game_ind]->money_3_4;
-	$players[$player_id]->money += $money;
-	if ($money < $players[$player_id]->money_min)
-		$players[$player_id]->money_min = $money;
-	if ($money > $players[$player_id]->money_max)
-		$players[$player_id]->money_max = $money;
-
-	// Money MINUS
-	$money -= $games[$game_ind]->money_1_3;
-	$money -= $games[$game_ind]->money_2_3;
-	if ($play4)
-		$money -= $games[$game_ind]->money_4_3;
-	$players[$player_id]->balance += $money;
-	$games[$game_ind]->money_3 = $money;
-	if ($money < $players[$player_id]->balance_min)
-		$players[$player_id]->balance_min = $money;
-	if ($money > $players[$player_id]->balance_max)
-		$players[$player_id]->balance_max = $money;
-
-	// Result
-	$score += $total_hill * 10;
-	$score -= $games[$game_ind]->hill_3 * 10;
-	$score += $money;
-	$players[$player_id]->score += $score;
-	$games[$game_ind]->score_3 = $score;
-	if ($score < $players[$player_id]->score_min)
-		$players[$player_id]->score_min = $score;
-	if ($score > $players[$player_id]->score_max)
-		$players[$player_id]->score_max = $score;
-
-	// Stats
-	$players[$player_id]->games++;
-	if ($score > 0)
-		$players[$player_id]->wins++;
-	if ($games[$game_ind]->hill_3 < $players[$player_id]->hill_min)
-		$players[$player_id]->hill_min = $games[$game_ind]->hill_3;
-	if ($games[$game_ind]->hill_3 > $players[$player_id]->hill_max)
-		$players[$player_id]->hill_max = $games[$game_ind]->hill_3;
-
-	// Global stats
-	if ($score > $max_win)
-	{
-		$max_win = $score;
-		$max_win_ind = $game_ind;
-		$max_win_player = $player_id;
-	}
-	if ($score < $max_loss)
-	{
-		$max_loss = $score;
-		$max_loss_ind = $game_ind;
-		$max_loss_player = $player_id;
-	}
-	if ($games[$game_ind]->hill_3 > $max_hill)
-	{
-		$max_hill = $games[$game_ind]->hill_3;
-		$max_hill_ind = $game_ind;
-		$max_hill_player = $player_id;
-	}
-	if ($games[$game_ind]->hill_3 < $min_hill)
-	{
-		$min_hill = $games[$game_ind]->hill_3;
-		$min_hill_ind = $game_ind;
-		$min_hill_player = $player_id;
-	}
-
-	if ($play4)
-	{
-		// 4
-
-		$score = 0;
-		$money = 0;
-		$player_id = $games[$game_ind]->name_4;
-
-		// Money PLUS
-		$money += $games[$game_ind]->money_4_1;
-		$money += $games[$game_ind]->money_4_2;
-		$money += $games[$game_ind]->money_4_3;
-		$players[$player_id]->money += $money;
-		if ($money < $players[$player_id]->money_min)
-			$players[$player_id]->money_min = $money;
-		if ($money > $players[$player_id]->money_max)
-			$players[$player_id]->money_max = $money;
-
-		// Money MINUS
-		$money -= $games[$game_ind]->money_1_4;
-		$money -= $games[$game_ind]->money_2_4;
-		$money -= $games[$game_ind]->money_3_4;
-		$players[$player_id]->balance += $money;
-		$games[$game_ind]->money_4 = $money;
-		if ($money < $players[$player_id]->balance_min)
-			$players[$player_id]->balance_min = $money;
-		if ($money > $players[$player_id]->balance_max)
-			$players[$player_id]->balance_max = $money;
-
-		// Result
-		$score += $total_hill * 10;
-		$score -= $games[$game_ind]->hill_4 * 10;
-		$score += $money;
-		$players[$player_id]->score += $score;
-		$games[$game_ind]->score_4 = $score;
-		if ($score < $players[$player_id]->score_min)
-			$players[$player_id]->score_min = $score;
-		if ($score > $players[$player_id]->score_max)
-			$players[$player_id]->score_max = $score;
-
-		// Stats
-		$players[$player_id]->games++;
-		if ($score > 0)
-			$players[$player_id]->wins++;
-		if ($games[$game_ind]->hill_4 < $players[$player_id]->hill_min)
-			$players[$player_id]->hill_min = $games[$game_ind]->hill_4;
-		if ($games[$game_ind]->hill_4 > $players[$player_id]->hill_max)
-			$players[$player_id]->hill_max = $games[$game_ind]->hill_4;
-
-		// Global stats
-		if ($score > $max_win)
+		$player->total += $game->total;
+		
+		// Hill
+		
+		$player_hill = $game->{'hill_'.$player_ind};
+		
+		$player->hill += $player_hill;
+		$player->hill_min = min($player->hill_min, $player_hill);
+		$player->hill_max = max($player->hill_max, $player_hill);
+		
+		// Money / balance
+		
+		$opponents_inds = getOpponentsInds($game->num_players, $player_ind);
+		$money_income = 0;
+		$money_loss = 0;
+		foreach ($opponents_inds as $opponent_ind)
 		{
-			$max_win = $score;
+			$money_income += $game->{'money_'.$player_ind.'_'.$opponent_ind};
+			$money_loss += $game->{'money_'.$opponent_ind.'_'.$player_ind};
+		}
+		
+		$player->money += $money_income;
+		$player->money_min = min($player->money_min, $money_income);
+		$player->money_max = max($player->money_max, $money_income);
+		
+		$money_balance = $money_income - $money_loss;
+		
+		$player->balance += $money_balance;
+		$player->balance_min = min($player->balance_min, $money_balance);
+		$player->balance_max = max($player->balance_max, $money_balance);
+		
+		// Score
+		
+		$player_score = $avg_hill * 10;
+		$player_score -= $player_hill * 10;
+		$player_score += $money_balance;
+		
+		$game->{'score_'.$player_ind} = $player_score;
+		$player->score += $player_score;
+		$player->score_min = min($player->score_min, $player_score);
+		$player->score_max = max($player->score_max, $player_score);
+		
+		// Other player's stats
+		
+		++$player->games;
+		if ($player_score > 0)
+			++$player->wins;
+		
+		// Global stats
+		
+		if ($player_score > $max_win)
+		{
+			$max_win = $player_score;
 			$max_win_ind = $game_ind;
 			$max_win_player = $player_id;
 		}
-		if ($score < $max_loss)
+		if ($player_score < $max_loss)
 		{
-			$max_loss = $score;
+			$max_loss = $player_score;
 			$max_loss_ind = $game_ind;
 			$max_loss_player = $player_id;
 		}
-		if ($games[$game_ind]->hill_4 > $max_hill)
+		if ($player_hill > $max_hill)
 		{
-			$max_hill = $games[$game_ind]->hill_4;
+			$max_hill = $player_hill;
 			$max_hill_ind = $game_ind;
 			$max_hill_player = $player_id;
 		}
-		if ($games[$game_ind]->hill_4 < $min_hill)
+		if ($player_hill < $min_hill)
 		{
-			$min_hill = $games[$game_ind]->hill_4;
+			$min_hill = $player_hill;
 			$min_hill_ind = $game_ind;
 			$min_hill_player = $player_id;
 		}
 	}
 }
 
-disconnect($connection);
+// Calculate average stats for all players
 
-for ($player_ind = 0; $player_ind < $num_players; $player_ind++)
+foreach ($players as &$player)
 {
-	$players[$player_ind]->score_avg = round($players[$player_ind]->score / $players[$player_ind]->games);
-	$players[$player_ind]->hill_avg = round($players[$player_ind]->hill / $players[$player_ind]->games);
-	$players[$player_ind]->money_avg = round($players[$player_ind]->money / $players[$player_ind]->games);
-	$players[$player_ind]->balance_avg = round($players[$player_ind]->balance / $players[$player_ind]->games);
+	$player->score_avg = round($player->score / $player->games);
+	$player->hill_avg = round($player->hill / $player->games);
+	$player->money_avg = round($player->money / $player->games);
+	$player->balance_avg = round($player->balance / $player->games);
 }
 
 ?>
