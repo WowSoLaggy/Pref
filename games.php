@@ -18,63 +18,63 @@
 			{
 				echo "<tr valign=center><td width=30 align=center><a class='anchor' name='anchor_game_".($num_games - $i).
 				"'><div class='game_index_label'>".($num_games - $i).
-				"</div></a></td><td align=center>".$games[$i]['total'].
+				"</div></a></td><td align=center>".$games[$i]->total.
 				"</td><td";
 				
-				if ($games[$i]['1_score'] > 0)
+				if ($games[$i]->score_1 > 0)
 					echo " bgcolor=#6EBA17";
-				else if ($games[$i]['1_score'] < 0)
+				else if ($games[$i]->score_1 < 0)
 					echo " bgcolor=#9E7A17";
 				
-				echo "><img src='images/".$players[$games[$i]['1_name']]['image'].
+				echo "><img src='images/".$players[$games[$i]->name_1]->image.
 				"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
-				round($games[$i]['1_score']).
-				"</b><br><small>Гора: ".$games[$i]['1_hill'].
-				"<br>Висты: ".$games[$i]['1_money']."</small></p>".
+				round($games[$i]->score_1).
+				"</b><br><small>Гора: ".$games[$i]->hill_1.
+				"<br>Висты: ".$games[$i]->money_1."</small></p>".
 				"</td><td";
 				
-				if ($games[$i]['2_score'] > 0)
+				if ($games[$i]->score_2 > 0)
 					echo " bgcolor=#6EBA17";
-				else if ($games[$i]['2_score'] < 0)
+				else if ($games[$i]->score_2 < 0)
 					echo " bgcolor=#9E7A17";
 				
-				echo "><img src='images/".$players[$games[$i]['2_name']]['image'].
+				echo "><img src='images/".$players[$games[$i]->name_2]->image.
 				"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
-				round($games[$i]['2_score']).
-				"</b><br><small>Гора: ".$games[$i]['2_hill'].
-				"<br>Висты: ".$games[$i]['2_money']."</small></p>".
+				round($games[$i]->score_2).
+				"</b><br><small>Гора: ".$games[$i]->hill_2.
+				"<br>Висты: ".$games[$i]->money_2."</small></p>".
 				"</td><td";
 				
-				if ($games[$i]['3_score'] > 0)
+				if ($games[$i]->score_3 > 0)
 					echo " bgcolor=#6EBA17";
-				else if ($games[$i]['3_score'] < 0)
+				else if ($games[$i]->score_3 < 0)
 					echo " bgcolor=#9E7A17";
 				
-				echo "><img src='images/".$players[$games[$i]['3_name']]['image'].
+				echo "><img src='images/".$players[$games[$i]->name_3]->image.
 				"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
-				round($games[$i]['3_score']).
-				"</b><br><small>Гора: ".$games[$i]['3_hill'].
-				"<br>Висты: ".$games[$i]['3_money']."</small></p>".
+				round($games[$i]->score_3).
+				"</b><br><small>Гора: ".$games[$i]->hill_3.
+				"<br>Висты: ".$games[$i]->money_3."</small></p>".
 				"</td><td";
 				
-				if ($games[$i]['num_players'] == 4)
+				if ($games[$i]->num_players == 4)
 				{
-					if ($games[$i]['4_score'] > 0)
+					if ($games[$i]->score_4 > 0)
 						echo " bgcolor=#6EBA17";
-					else if ($games[$i]['4_score'] < 0)
+					else if ($games[$i]->score_4 < 0)
 						echo " bgcolor=#9E7A17";
 				
-					echo "><img src='images/".$players[$games[$i]['4_name']]['image'].
+					echo "><img src='images/".$players[$games[$i]->name_4]->image.
 					"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
-					round($games[$i]['4_score']).
-					"</b><br><small>Гора: ".$games[$i]['4_hill'].
-					"<br>Висты: ".$games[$i]['4_money']."</small></p>";
+					round($games[$i]->score_4).
+					"</b><br><small>Гора: ".$games[$i]->hill_4.
+					"<br>Висты: ".$games[$i]->money_4."</small></p>";
 				}
 				else
 					echo ">";
 				
 				$month_rus = "";
-				$date = date_parse($games[$i]['date']);
+				$date = date_parse($games[$i]->date);
 				$month_ind = $date['month'];
 				switch ($month_ind)
 				{
@@ -105,8 +105,8 @@
 		
 		// Header
 		
-		$first_game_date = date_parse($games[0]['date']);
-		$last_game_date = date_parse($games[$num_games - 1]['date']);
+		$first_game_date = date_parse($games[0]->date);
+		$last_game_date = date_parse($games[$num_games - 1]->date);
 		
 		$year_start = $first_game_date['year'];
 		$year_end = $last_game_date['year'];
@@ -126,7 +126,7 @@
 		$start_index = 0;
 		for ($i = 0; $i < $num_games; $i++)
 		{
-			$cur_game_date = date_parse($games[$i]['date']);
+			$cur_game_date = date_parse($games[$i]->date);
 			$year = $cur_game_date['year'];
 			
 			if ($year != $cur_year)
