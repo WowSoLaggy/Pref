@@ -100,6 +100,7 @@ function getGames()
 	return $games;
 }
 
+
 //
 // MAIN
 //
@@ -128,23 +129,28 @@ $max_hill_player = 0;
 $min_hill = 0;
 $min_hill_ind = 0;
 $min_hill_player = 0;
-for ($game_ind = 0; $game_ind < $num_games; $game_ind++)
+for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 {
-	$play4 = ($games[$game_ind]->num_players == 4);
-
-	// Hill
-
-	$players[$games[$game_ind]->name_1]->hill += $games[$game_ind]->hill_1;
-	$players[$games[$game_ind]->name_2]->hill += $games[$game_ind]->hill_2;
-	$players[$games[$game_ind]->name_3]->hill += $games[$game_ind]->hill_3;
-	if (!$play4)
-		$total_hill = $games[$game_ind]->hill_1 + $games[$game_ind]->hill_2 + $games[$game_ind]->hill_3;
-	else
+	$total_hill = 0;
+	for ($player_ind = 1; $player_ind <= $games[$game_ind]->num_players; ++$player_ind)
 	{
-		$players[$games[$game_ind]->name_4]->hill += $games[$game_ind]->hill_4;
-		$total_hill = $games[$game_ind]->hill_1 + $games[$game_ind]->hill_2 + $games[$game_ind]->hill_3 + $games[$game_ind]->hill_4;
+		$player_id = $games[$game_ind]->{'name_'.$player_ind};
+		$player = &$players[$player_id];
+		
+		$player_hill = $games[$game_ind]->{'hill_'.$player_ind};
+		$player->hill += $player_hill;
+		$total_hill += $player_hill;
 	}
 	$total_hill = $total_hill / $games[$game_ind]->num_players;
+	
+	/////////
+	/////////
+	// OLD
+	/////////
+	/////////
+	
+	
+	$play4 = ($games[$game_ind]->num_players == 4);
 
 	// Total
 
