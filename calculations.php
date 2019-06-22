@@ -113,6 +113,20 @@ function getOpponentsInds($num_players, $own_id)
 }
 
 
+function get_or_create_season(&$seasons, $year)
+{
+	foreach ($seasons as &$season)
+	{
+		if ($season->year == $year)
+			return $season;
+	}
+
+	$new_season = new Season();
+	$new_season->year = $year;
+	array_push($seasons, $new_season);
+	return $new_season;
+}
+
 //
 // MAIN
 //
@@ -145,6 +159,8 @@ $max_hill_player = 0;
 $min_hill = 0;
 $min_hill_ind = 0;
 $min_hill_player = 0;
+
+$seasons = array();
 
 for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 {
@@ -245,7 +261,52 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 			$min_hill_player = $player_id;
 		}
 	}
+	
+	// Seasons
+	
+	$cur_game_date = date_parse($game->date);
+	$cur_game_year = $cur_game_date['year'];
+	if ($cur_game_year <= 2008)
+		continue;
+	
+	$season = &get_or_create_season($seasons, $cur_game_year);
+	
+	++$season->num_games;
+	$season->total += $game->total;
+	
+	for ($player_ind = 1; $player_ind <= $game->num_players; ++$player_ind)
+	{
+		$player_id = $game->{'name_'.$player_ind};
+		$player = &$players[$player_id];
+		
+		$season->players_score[$player_id] += $game->{'score_'.$player_ind};
+	}
 }
+
+
+
+foreach ($seasons as &$season)
+{
+	// Sort players by score
+	arsort($season->players_score);
+	
+	// Get all players ids in descending order
+	$keys = array_keys($season->players_score);
+	
+	$player_gold = &$players[$keys[0]];
+	$player_silver = &$players[$keys[1]];
+	$player_bronze = &$players[$keys[2]];
+	
+	++$player_gold->medals_gold;
+	$player_gold->medals_score += VALUE_GOLD;
+	
+	++$player_silver->medals_silver;
+	$player_silver->medals_score += VALUE_SILVER;
+	
+	++$player_bronze->medals_bronze;
+	$player_bronze->medals_score += VALUE_BRONZE;
+}
+
 
 // Calculate average stats for all players
 

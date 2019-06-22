@@ -4,6 +4,10 @@
 const MIN_VALUE = -999999;
 const MAX_VALUE = 999999;
 
+const VALUE_GOLD = 10000;
+const VALUE_SILVER = 100;
+const VALUE_BRONZE = 1;
+
 
 class Player
 {
@@ -15,6 +19,11 @@ class Player
 	public $wins = 0;
 	
 	public $total = 0;
+	
+	public $medals_gold = 0;
+	public $medals_silver = 0;
+	public $medals_bronze = 0;
+	public $medals_score = 0;
 	
 	public $score = 0;
 	public $score_min = MAX_VALUE;
@@ -70,6 +79,17 @@ class Game
 	public $money_4_1 = 0;
 	public $money_4_2 = 0;
 	public $money_4_3 = 0;
+}
+
+
+class Season
+{
+	public $year = 2008;
+	
+	public $num_games = 0;
+	public $total = 0;
+	
+	public $players_score = array();
 }
 
 
