@@ -31,19 +31,32 @@
 		// Players
 		
 		// Header
-		echo '<div id="block_top"><h3>Топ игроков</h3><table border="1"><td><th>Имя</th><th>Медали<br>(зол/сер/бронз)</th><th>Игры</th><th>Общий счёт</th></td>';
+		echo '<div id="block_top"><h3>Топ игроков</h3><table border="1"><td><th>Имя</th><th>Игры</th><th>Общий счёт</th><th>Медали</th></td>';
 		
-		for ($i = 0; $i < $num_players; $i++)
+		for ($player_ind = 0; $player_ind < $num_players; ++$player_ind)
 		{
 			$str = "<tr>";
-			$str .= "<td width=20 align=center>".($i + 1)."</td>";
-			$str .= "<td width=160><img src='images/".$players_sorted[$i]->image.
-				"' align=absmiddle hspace=10 vspace=10 width=50>".$players_sorted[$i]->name."</td>";
-			$str .=
-					"<td width=120 align=center>".$players_sorted[$i]->medals_gold."/".$players_sorted[$i]->medals_silver."/".$players_sorted[$i]->medals_bronze.
-					"</td>";
-			$str .= "<td width=50 align=center>".$players_sorted[$i]->games."</td>";
-			$str .= "<td width=100 align=center><b><font size='+1'>".round($players_sorted[$i]->score)."</font></b></td>";
+			$str .= "<td width=20 align=center>".($player_ind + 1)."</td>";
+			$str .= "<td width=160><img src='images/".$players_sorted[$player_ind]->image.
+				"' align=absmiddle hspace=10 vspace=10 width=50>".$players_sorted[$player_ind]->name."</td>";
+			
+			$str .= "<td width=50 align=center>".$players_sorted[$player_ind]->games."</td>";
+			$str .= "<td width=100 align=center><b><font size='+1'>".round($players_sorted[$player_ind]->score)."</font></b></td>";
+			
+			// Medals
+			$str .= "<td width=160 align=center>";
+			
+			for ($i = 0; $i < $players_sorted[$player_ind]->medals_gold; ++$i)
+				$str .= "<img src='images/medal_gold.png' width=15>";
+			$str .= " ";
+			for ($i = 0; $i < $players_sorted[$player_ind]->medals_silver; ++$i)
+				$str .= "<img src='images/medal_silver.png' width=15>";
+			$str .= " ";
+			for ($i = 0; $i < $players_sorted[$player_ind]->medals_bronze; ++$i)
+				$str .= "<img src='images/medal_bronze.png' width=15>";
+			
+			$str .= "</td>";
+			
 			$str .= "</tr>";
 			
 			echo $str;
