@@ -284,11 +284,15 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 }
 
 
-
+$current_year = date("Y");
 foreach ($seasons as &$season)
 {
 	// Sort players by score
 	arsort($season->players_score);
+	
+	// Add medals for all previous years
+	if ($season->year >= $current_year)
+		continue;
 	
 	// Get all players ids in descending order
 	$keys = array_keys($season->players_score);
