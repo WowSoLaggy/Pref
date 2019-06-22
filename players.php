@@ -18,7 +18,7 @@
 		
 		// Output Top-players
 		
-		echo '<table border="1"><td><th>Имя</th><th>Общий счёт<br>(мин/ср/макс)</th><th>Игры<br>(Сумма пуль)</th><th>Участие/<br>Победы</th>
+		echo '<table border="1"><td><th>Имя</th><th>Медали<br>(зол/сер/бронз)</th><th>Общий счёт<br>(мин/ср/макс)</th><th>Игры<br>(Сумма пуль)</th><th>Участие/<br>Победы</th>
 		<th>Общая гора<br>(мин/ср/макс)</th><th>Баланс вистов<br>(мин/ср/макс)</th><th>Всего вистов<br>(мин/ср/макс)</th></td>';
 		
 		for ($i = 0; $i < $num_players; $i++)
@@ -27,6 +27,9 @@
 			$string .= 
 					"<td width=160><img src='images/".$players[$i]->image.
 					"' align=absmiddle hspace=10 vspace=10 width=50>".$players[$i]->name.
+					"</td>";
+			$string .=
+					"<td width=120 align=center>".$players[$i]->medals_gold."/".$players[$i]->medals_silver."/".$players[$i]->medals_bronze.
 					"</td>";
 			$string .=
 					"<td width=110 align=center><b><font size='+1'>".round($players[$i]->score)."</font></b><br>(".
@@ -50,7 +53,8 @@
 			$string .=
 					"<td width=120 align=center>".$players[$i]->money."<br>(".
 					$players[$i]->money_min."/".round($players[$i]->money_avg)."/".$players[$i]->money_max.
-					")</td></tr>";
+					")</td>";
+			$string .= "</tr>";
 			
 			echo $string;
 		}

@@ -20,18 +20,33 @@
 		$players_sorted = $players;
 		function scoreSort($a, $b)
 		{
-			return ($b->score - $a->score);
+			$medals_diff = $b->medals_score - $a->medals_score;
+			if ($medals_diff != 0)
+				return $medals_diff;
+			$score_diff = $b->score - $a->score;
+			return $score_diff;
 		}
 		usort($players_sorted, "scoreSort");
+
+		// Players
 		
-		echo '<div id="block_top"><h3>Топ игроков</h3><table border="1"><td><th>Имя</th><th>Игры</th><th>Общий счёт</th></td>';
+		// Header
+		echo '<div id="block_top"><h3>Топ игроков</h3><table border="1"><td><th>Имя</th><th>Медали<br>(зол/сер/бронз)</th><th>Игры</th><th>Общий счёт</th></td>';
+		
 		for ($i = 0; $i < $num_players; $i++)
 		{
-			echo "<tr><td width=20 align=center>".($i + 1).
-			"</td><td width=160><img src='images/".$players_sorted[$i]->image.
-			"' align=absmiddle hspace=10 vspace=10 width=50>".$players_sorted[$i]->name.
-			"</td><td width=50 align=center>".$players_sorted[$i]->games.
-			"</td><td width=100 align=center>".round($players_sorted[$i]->score)."</td></tr>";
+			$str = "<tr>";
+			$str .= "<td width=20 align=center>".($i + 1)."</td>";
+			$str .= "<td width=160><img src='images/".$players_sorted[$i]->image.
+				"' align=absmiddle hspace=10 vspace=10 width=50>".$players_sorted[$i]->name."</td>";
+			$str .=
+					"<td width=120 align=center>".$players_sorted[$i]->medals_gold."/".$players_sorted[$i]->medals_silver."/".$players_sorted[$i]->medals_bronze.
+					"</td>";
+			$str .= "<td width=50 align=center>".$players_sorted[$i]->games."</td>";
+			$str .= "<td width=100 align=center>".round($players_sorted[$i]->score)."</td>";
+			$str .= "</tr>";
+			
+			echo $str;
 		}
 		echo '</table></div>';
 		
