@@ -15,9 +15,11 @@
 		include('calculations.php');
 		
 		
+		$current_year = date("Y");
 		function draw_season(&$season)
 		{
 			global $players;
+			global $current_year;
 			
 			echo "<hr><h3>Сезон ".$season->year."</h3>";
 			
@@ -32,7 +34,22 @@
 			foreach ($keys as $key)
 			{
 				$str .= "<tr>";
-				$str .= "<td width=20 align=center>".$place."</td>";
+				$str .= "<td width=50 align=center>";
+				if ($season->year != $current_year)
+				{
+					if ($place == 1)
+						$str .= "<img src='images/medal_gold.png' width=15>";
+					else if ($place == 2)
+						$str .= "<img src='images/medal_silver.png' width=15>";
+					else if ($place == 3)
+						$str .= "<img src='images/medal_bronze.png' width=15>";
+					else
+						$str .= $place;
+				}
+				else
+					$str .= $place;
+				
+				$str .= "</td>";
 				$str .= 
 					"<td width=160><img src='images/".$players[$key]->image.
 					"' align=absmiddle hspace=10 vspace=10 width=50>".$players[$key]->name.
