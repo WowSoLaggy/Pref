@@ -43,7 +43,7 @@
 					"<td width=120 align=center>".$players_sorted[$i]->medals_gold."/".$players_sorted[$i]->medals_silver."/".$players_sorted[$i]->medals_bronze.
 					"</td>";
 			$str .= "<td width=50 align=center>".$players_sorted[$i]->games."</td>";
-			$str .= "<td width=100 align=center>".round($players_sorted[$i]->score)."</td>";
+			$str .= "<td width=100 align=center><b><font size='+1'>".round($players_sorted[$i]->score)."</font></b></td>";
 			$str .= "</tr>";
 			
 			echo $str;

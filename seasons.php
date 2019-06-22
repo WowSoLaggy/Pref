@@ -19,16 +19,29 @@
 		{
 			global $players;
 			
-			echo "<h3>Сезон ".$season->year."</h3>";
+			echo "<hr><h3>Сезон ".$season->year."</h3>";
 			
 			// Players
 			
-			$str = "<table border = 2><tr>";
+			$str = "<table border=0><tr>";
 			$str .= '<td valign=top width=500><h4>Топ игроков</h4><table border="1">';
+			$str .= '<td><th>Имя</th><th>Счёт</th></td>';
 			
 			$keys = array_keys($season->players_score);
+			$place = 1;
 			foreach ($keys as $key)
-				$str .= '<tr><td width=120 align=left>'.$players[$key]->name.'</td><td>'.round($season->players_score[$key]).'</td></tr>';
+			{
+				$str .= "<tr>";
+				$str .= "<td width=20 align=center>".$place."</td>";
+				$str .= 
+					"<td width=160><img src='images/".$players[$key]->image.
+					"' align=absmiddle hspace=10 vspace=10 width=50>".$players[$key]->name.
+					"</td>";
+				$str .= "<td width=60 align=center><b><font size='+1'>".round($season->players_score[$key])."</font></b></td>";
+				$str .= "</tr>";
+				
+				++$place;
+			}
 			
 			$str .= '</table></td>';
 			
