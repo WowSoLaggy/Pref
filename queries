@@ -1,1 +1,0 @@
-INSERT INTO games_tbl (id, total, num_players, 1_name, 2_name, 3_name, 4_name, 1_hill, 2_hill, 3_hill, 4_hill, 1_money_2, 1_money_3, 1_money_4, 2_money_1, 2_money_3, 2_money_4, 3_money_1, 3_money_2, 3_money_4, 4_money_1, 4_money_2, 4_money_3, date) VALUES (0, 30, 3, 0, 1, 2, -1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2016-01-05);
