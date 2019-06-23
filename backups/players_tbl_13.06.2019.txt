@@ -1,0 +1,13 @@
+0,Егоров,Egorov.png
+1,Дегтярёв,Degtyarev.png
+2,Козлов,Kozlov.png
+3,Юля,Yulya.png
+4,Ник,Nik.png
+5,Ден,Den.png
+6,Аня,Anya.png
+7,Лиза,Grushko.png
+8,Козлов С.,KozlovS.png
+9,Федя,Fedya.png
+10,Владик,Vlad.png
+11,Митюгова,LizaM.png
+12,Игорь,Igor.png
