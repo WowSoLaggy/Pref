@@ -298,17 +298,13 @@ foreach ($seasons as &$season)
 	$keys = array_keys($season->players_score);
 	
 	$player_gold = &$players[$keys[0]];
+	$player_gold->add_medal(MedalValue::Gold, $season->year);
+	
 	$player_silver = &$players[$keys[1]];
+	$player_silver->add_medal(MedalValue::Silver, $season->year);
+	
 	$player_bronze = &$players[$keys[2]];
-	
-	++$player_gold->medals_gold;
-	$player_gold->medals_score += VALUE_GOLD;
-	
-	++$player_silver->medals_silver;
-	$player_silver->medals_score += VALUE_SILVER;
-	
-	++$player_bronze->medals_bronze;
-	$player_bronze->medals_score += VALUE_BRONZE;
+	$player_bronze->add_medal(MedalValue::Bronze, $season->year);
 }
 
 

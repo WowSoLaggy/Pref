@@ -4,9 +4,20 @@
 const MIN_VALUE = -999999;
 const MAX_VALUE = 999999;
 
-const VALUE_GOLD = 10000;
-const VALUE_SILVER = 100;
-const VALUE_BRONZE = 1;
+
+abstract class MedalValue
+{
+	const Gold = 10000;
+	const Silver = 100;
+	const Bronze = 1;
+	const None = 0;
+}
+
+class Medal
+{
+	public $value = MedalValue::None;
+	public $text = "";
+}
 
 
 class Player
@@ -20,9 +31,7 @@ class Player
 	
 	public $total = 0;
 	
-	public $medals_gold = 0;
-	public $medals_silver = 0;
-	public $medals_bronze = 0;
+	public $medals = array();
 	public $medals_score = 0;
 	
 	public $score = 0;
@@ -44,6 +53,17 @@ class Player
 	public $balance_min = MAX_VALUE;
 	public $balance_avg = 0;
 	public $balance_max = MIN_VALUE;
+	
+	function add_medal($value, $text)
+	{
+		$medal = new Medal();
+		$medal->value = $value;
+		$medal->text = $text;
+		
+		array_push($this->medals, $medal);
+		
+		$this->medals_score += $value;
+	}
 }
 
 

@@ -14,6 +14,7 @@
 		// Calculate players and games
 		
 		include('calculations.php');
+		include('utils.php');
 		
 		// Output Top-players
 		
@@ -46,14 +47,7 @@
 			// Medals
 			$str .= "<td width=160 align=center>";
 			
-			for ($i = 0; $i < $players_sorted[$player_ind]->medals_gold; ++$i)
-				$str .= "<img src='images/medal_gold.png' width=15>";
-			$str .= " ";
-			for ($i = 0; $i < $players_sorted[$player_ind]->medals_silver; ++$i)
-				$str .= "<img src='images/medal_silver.png' width=15>";
-			$str .= " ";
-			for ($i = 0; $i < $players_sorted[$player_ind]->medals_bronze; ++$i)
-				$str .= "<img src='images/medal_bronze.png' width=15>";
+			draw_medals_to_str($str, $players_sorted[$player_ind]);
 			
 			$str .= "</td>";
 			
