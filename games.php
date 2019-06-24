@@ -9,94 +9,77 @@
 	
 		<?php
 		
-		function draw_table($startIndex, $endIndex)
-		{
-			global $players, $games, $num_games;
+		include('utils.php');
 		
-			echo '<table border="1"><td><th width=60>Пуля</th><th width=170>Игрок 1</th><th width=170>Игрок 2</th><th width=170>Игрок 3</th><th width=170>Игрок 4</th><th width=100>Дата</th></td>';
-			for ($i = $startIndex; $i <= $endIndex; $i++)
+		
+		function start_new_year($year)
+		{
+			$str = "<div class='block_year'><h3><a class='anchor' name='anchor_".$year."'>".$year." год</a></h3><br>";
+			$str .= '<table border="1"><td>'.
+					'<th width=60>Пуля</th>'.
+					'<th width=170>Игрок 1</th><th width=170>Игрок 2</th><th width=170>Игрок 3</th><th width=170>Игрок 4</th>'.
+					'<th width=100>Дата</th></td>';
+			
+			echo $str;
+		}
+		
+		function finish_year()
+		{
+			echo '</table><br></div>';
+		}
+		
+		function add_game(&$game, $ind_to_show)
+		{
+			global $players;
+			
+			$str = '<tr valign=center>';
+			
+			$str .= "<td width=30 align=center>".
+					"<a class='anchor' name='anchor_game_".$game->id."'>".
+					"<div class='game_index_label'>".$ind_to_show."</div></a></td>";
+			
+			$str .= "<td align=center>".$game->total."</td>";
+			
+			for ($player_ind = 1; $player_ind <= $game->num_players; ++$player_ind)
 			{
-				echo "<tr valign=center><td width=30 align=center><a class='anchor' name='anchor_game_".($num_games - $i).
-				"'><div class='game_index_label'>".($num_games - $i).
-				"</div></a></td><td align=center>".$games[$i]->total.
-				"</td><td";
+				$player_score = $game->{'score_'.$player_ind};
+				$player_hill = $game->{'hill_'.$player_ind};
+				$player_money = $game->{'money_'.$player_ind};
+				$player_id = $game->{'name_'.$player_ind};
+				$player_image = $players[$player_id]->image;
 				
-				if ($games[$i]->score_1 > 0)
-					echo " bgcolor=#6EBA17";
-				else if ($games[$i]->score_1 < 0)
-					echo " bgcolor=#9E7A17";
+				$str .= '<td ';
 				
-				echo "><img src='images/".$players[$games[$i]->name_1]->image.
-				"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
-				round($games[$i]->score_1).
-				"</b><br><small>Гора: ".$games[$i]->hill_1.
-				"<br>Висты: ".$games[$i]->money_1."</small></p>".
-				"</td><td";
+				if ($player_score > 0)
+					$str .= 'bgcolor=#6EBA17>';
+				else if ($player_score < 0)
+					$str .= 'bgcolor=#9E7A17>';
 				
-				if ($games[$i]->score_2 > 0)
-					echo " bgcolor=#6EBA17";
-				else if ($games[$i]->score_2 < 0)
-					echo " bgcolor=#9E7A17";
+				$str .= "<img src='images/".$player_image."' align=left hspace=10 vspace=10 width=50>";
 				
-				echo "><img src='images/".$players[$games[$i]->name_2]->image.
-				"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
-				round($games[$i]->score_2).
-				"</b><br><small>Гора: ".$games[$i]->hill_2.
-				"<br>Висты: ".$games[$i]->money_2."</small></p>".
-				"</td><td";
+				$str .= '<p>';
+				$str .= '<b>Счёт: '.round($player_score).'</b><br>';
+				$str .= '<small>Гора: '.$player_hill.'<br>';
+				$str .= 'Висты: '.$player_money.'</small>';
 				
-				if ($games[$i]->score_3 > 0)
-					echo " bgcolor=#6EBA17";
-				else if ($games[$i]->score_3 < 0)
-					echo " bgcolor=#9E7A17";
-				
-				echo "><img src='images/".$players[$games[$i]->name_3]->image.
-				"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
-				round($games[$i]->score_3).
-				"</b><br><small>Гора: ".$games[$i]->hill_3.
-				"<br>Висты: ".$games[$i]->money_3."</small></p>".
-				"</td><td";
-				
-				if ($games[$i]->num_players == 4)
-				{
-					if ($games[$i]->score_4 > 0)
-						echo " bgcolor=#6EBA17";
-					else if ($games[$i]->score_4 < 0)
-						echo " bgcolor=#9E7A17";
-				
-					echo "><img src='images/".$players[$games[$i]->name_4]->image.
-					"' align=left hspace=10 vspace=10 width=50><p><b>Счёт: ".
-					round($games[$i]->score_4).
-					"</b><br><small>Гора: ".$games[$i]->hill_4.
-					"<br>Висты: ".$games[$i]->money_4."</small></p>";
-				}
-				else
-					echo ">";
-				
-				$month_rus = "";
-				$date = date_parse($games[$i]->date);
-				$month_ind = $date['month'];
-				switch ($month_ind)
-				{
-					case 1: $month_rus = "янв"; break;
-					case 2: $month_rus = "фев"; break;
-					case 3: $month_rus = "мар"; break;
-					case 4: $month_rus = "апр"; break;
-					case 5: $month_rus = "май"; break;
-					case 6: $month_rus = "июн"; break;
-					case 7: $month_rus = "июл"; break;
-					case 8: $month_rus = "авг"; break;
-					case 9: $month_rus = "сен"; break;
-					case 10: $month_rus = "окт"; break;
-					case 11: $month_rus = "ноя"; break;
-					case 12: $month_rus = "дек"; break;
-				}
-				
-				echo "</td><td align=center>".$date['day']." ".$month_rus." ".$date['year'].
-				"</td></tr>";
+				$str .= '</p></td>';
 			}
-			echo '</table>';
-		} // drawTable()
+			if ($game->num_players < 4)
+				$str .= '<td/>';
+			
+			$game_date = date_parse($game->date);
+			$month_str = get_month_str($game_date['month']);
+			$str .= '<td align=center>'.$game_date['day'].' '.$month_str." ".$game_date['year'].'</td>';
+			
+			$str .= '</tr>';
+			
+			echo $str;
+		}
+		
+		
+		//
+		//// MAIN
+		//
 		
 		
 		// Calculate players and games
@@ -105,47 +88,49 @@
 		
 		// Header
 		
-		$first_game_date = date_parse($games[0]->date);
-		$last_game_date = date_parse($games[$num_games - 1]->date);
+		$header_str = "<div id='block_games_title'><h2>Список игр</h2></div>";
+		echo $header_str;
 		
-		$year_start = $first_game_date['year'];
-		$year_end = $last_game_date['year'];
-		echo "<div id='block_games_title'><h2>Список игр</h2></div>";
-		echo "<div id='block_years'>[ ";
-		for ($i = $year_start; $i >= $year_end; $i--)
+		// Years links
+		
+		$first_game_ind = 0;
+		$last_game_ind = $num_games - 1;
+		
+		$first_game_date = date_parse($games[$first_game_ind]->date);
+		$last_game_date = date_parse($games[$last_game_ind]->date);
+		
+		$first_game_year = $first_game_date['year'];
+		$last_game_year = $last_game_date['year'];
+		
+		$links_str = "<div id='block_years'>[";
+		for ($year = $last_game_year; $year >= $first_game_year; --$year)
+			$links_str .= " <a class='anchor_link' href='#anchor_".$year."'>".$year."</a>";
+		$links_str .= " ]</div>";
+		
+		echo $links_str;
+		
+		// Output games year-by-year in descending date order (from the newest to the oldest)
+		
+		const NO_YEAR = 0; // This year shall never happen o.O
+		$cur_year = NO_YEAR;
+		for ($game_ind = $last_game_ind; $game_ind >= $first_game_ind; --$game_ind)
 		{
-			echo "<a class='anchor_link' href='#anchor_".$i."'>".$i."</a>";
-			if ($i > $year_end)
-				echo " ";
-		}
-		echo " ]</div>";
-		
-		// Output games year-by-year
-		
-		$cur_year = $first_game_date['year'];
-		$start_index = 0;
-		for ($i = 0; $i < $num_games; $i++)
-		{
-			$cur_game_date = date_parse($games[$i]->date);
-			$year = $cur_game_date['year'];
+			$cur_game = &$games[$game_ind];
+			$cur_game_date = date_parse($cur_game->date);
+			$cur_game_year = $cur_game_date['year'];
 			
-			if ($year != $cur_year)
+			if ($cur_game_year != $cur_year)
 			{
-				echo "<div class='block_year'><h3><a class='anchor' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
-				draw_table($start_index, $i - 1);
-				$start_index = $i;
-				$cur_year = $year;
-				echo "<br></div>";
+				if ($cur_year != NO_YEAR)
+					finish_year();
+				$cur_year = $cur_game_year;
+				start_new_year($cur_year);
 			}
-			else if ($i == $num_games - 1)
-			{
-				echo "<div class='block_year'><h3><a class='anchor' name='anchor_".$cur_year."'>".$cur_year." год</a></h3><br>";
-				draw_table($start_index, $i);
-				$start_index = $i;
-				$cur_year = $year;
-				echo "<br></div>";
-			}
+			
+			add_game($cur_game, $game_ind + 1);
 		}
+		if ($cur_year != NO_YEAR)
+			finish_year();
 
 		?>
 		

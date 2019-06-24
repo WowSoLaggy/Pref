@@ -142,22 +142,32 @@ $num_players = count($players);
 $games = getGames();
 $num_games = count($games);
 
+
+
 disconnect($connection);
+
+// Sort games ascending by date
+
+function games_sorter($a, $b)
+{
+	return strtotime($a->date) - strtotime($b->date);
+}
+usort($games, "games_sorter");
 
 // Parse all games
 
 $total = 0;
 $max_win = 0;
-$max_win_ind = 0;
+$max_win_id = 0;
 $max_win_player = 0;
 $max_loss = 0;
-$max_loss_ind = 0;
+$max_loss_id = 0;
 $max_loss_player = 0;
 $max_hill = 0;
-$max_hill_ind = 0;
+$max_hill_id = 0;
 $max_hill_player = 0;
 $min_hill = 0;
-$min_hill_ind = 0;
+$min_hill_id = 0;
 $min_hill_player = 0;
 
 $seasons = array();
@@ -213,6 +223,7 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 		
 		$money_balance = $money_income - $money_loss;
 		
+		$game->{'money_'.$player_ind} = $money_balance;
 		$player->balance += $money_balance;
 		$player->balance_min = min($player->balance_min, $money_balance);
 		$player->balance_max = max($player->balance_max, $money_balance);
@@ -239,25 +250,25 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 		if ($player_score > $max_win)
 		{
 			$max_win = $player_score;
-			$max_win_ind = $game_ind;
+			$max_win_id = $game->id;
 			$max_win_player = $player_id;
 		}
 		if ($player_score < $max_loss)
 		{
 			$max_loss = $player_score;
-			$max_loss_ind = $game_ind;
+			$max_loss_id = $game->id;
 			$max_loss_player = $player_id;
 		}
 		if ($player_hill > $max_hill)
 		{
 			$max_hill = $player_hill;
-			$max_hill_ind = $game_ind;
+			$max_hill_id = $game->id;
 			$max_hill_player = $player_id;
 		}
 		if ($player_hill < $min_hill)
 		{
 			$min_hill = $player_hill;
-			$min_hill_ind = $game_ind;
+			$min_hill_id = $game->id;
 			$min_hill_player = $player_id;
 		}
 	}

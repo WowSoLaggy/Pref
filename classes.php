@@ -84,6 +84,11 @@ class Game
 	public $hill_3 = 0;
 	public $hill_4 = 0;
 	
+	public $money_1 = 0;
+	public $money_2 = 0;
+	public $money_3 = 0;
+	public $money_4 = 0;
+	
 	public $money_1_2 = 0;
 	public $money_1_3 = 0;
 	public $money_1_4 = 0;
