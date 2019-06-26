@@ -294,6 +294,15 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 	}
 }
 
+// Sort seasons
+
+function year_sort($a, $b)
+{
+	return ($b->year - $a->year);
+}
+usort($seasons, "year_sort");
+
+// Give prizes (medals)
 
 $current_year = date("Y");
 foreach ($seasons as &$season)

@@ -80,12 +80,6 @@
 		//
 
 		
-		function year_sort($a, $b)
-		{
-			return ($b->year - $a->year);
-		}
-		usort($seasons, "year_sort");
-
 		foreach ($seasons as &$season)
 			draw_season($season);
 		
