@@ -41,4 +41,11 @@ function get_month_str($month)
 	throw new Exception("Can't parse month index: ".$month.".");
 }
 
+function get_header_str()
+{
+	$str = '<html><head><title>Клуб "Паровоз Козлова"</title>'.
+		'<meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="style.css"></head>';
+	return $str;
+}
+
 ?>
