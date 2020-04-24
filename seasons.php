@@ -71,9 +71,12 @@ function get_page_str()
   $str .= '<h4>Количество игр по сезонам</h4>';
   $str .= '<canvas id="canvas_chart"></canvas>';
   $str .= '<script>';
-  $str .= 'var seasons_labels=[];';
+  $str .= 'var seasons_labels=[]; var seasons_data=[];';
   foreach ($rseasons as &$season)
+  {
     $str .= 'seasons_labels.push("'.$season->year.'");';
+    $str .= 'seasons_data.push("'.$season->num_games.'");';
+  }
   $str .= '</script>';
   $str .= '<script src="seasons.js"></script>';
 

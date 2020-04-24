@@ -11,7 +11,7 @@ var myChart = new Chart(ctx, {
     labels: seasons_labels,
     datasets: [{
       label: 'Games count',
-      data: [50, 58, 16, 1, 22, 28, 14, 44, 52, 46, 35, 5],
+      data: seasons_data,
       backgroundColor: 'rgba(0, 0, 0, 0)',
       borderColor: 'darkgreen',
       borderWidth: 2
