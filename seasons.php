@@ -67,13 +67,7 @@ function get_page_str()
   
   // Seasons' statistics graph
 
-  $rseasons = $seasons;
-  function year_sort_reverse($a, $b)
-  {
-    return ($a->year - $b->year);
-  }
-  usort($rseasons, "year_sort_reverse");
-
+  $rseasons = array_reverse($seasons);
   $str .= '<h4>Количество игр по сезонам</h4>';
   $str .= '<canvas id="canvas_chart"></canvas>';
   $str .= '<script>';
