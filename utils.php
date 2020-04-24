@@ -43,8 +43,12 @@ function get_month_str($month)
 
 function get_header_str()
 {
-	$str = '<html><head><title>Клуб "Паровоз Козлова"</title>'.
-		'<meta charset="utf-8"/><link rel="stylesheet" type="text/css" href="style.css"></head>';
+  $str =
+    '<html><head><title>Клуб "Паровоз Козлова"</title>'.
+    '<meta charset="utf-8"/>'.
+    '<link rel="stylesheet" type="text/css" href="style.css">'.
+    '<script src="libs/Chart.js"></script>'.
+    '</head>';
 	return $str;
 }
 

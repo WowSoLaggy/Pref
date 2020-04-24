@@ -62,8 +62,16 @@ function get_page_str()
 
 
 	$str = get_header_str();
-	$str .= '<body class="light">';
-	$str .= '<h2>Сезоны</h2><br>';
+  $str .= '<body class="light">';
+  $str .= '<h2>Сезоны</h2><br>';
+  
+  // Seasons' statistics graph
+
+  $str .= '<h4>Количество игр по сезонам</h4>';
+  $str .= '<canvas id="canvas_chart"></canvas>';
+  $str .= '<script src="seasons.js"></script>';
+
+  // Output seasons
 
 	$current_year = date("Y");
 	
