@@ -12,10 +12,43 @@ function get_page_str()
 
 	$str = get_header_str();
   $str .= '<body class="light">';
-  $str .= '<h2>Список игроков</h2><br>';
+  $str .= '<h2>Статистика игроков</h2>';
+
+  // players stats graph
+
+  $str .= '<h4>Общий счёт</h4>';
+
+  $rseasons = array_reverse($seasons);
+  $str .= '<canvas id="canvas_chart"></canvas>';
+  $str .= '<script>';
+  $str .= 'var seasons_labels=[]; var seasons_data=[];';
+
+  // Init data arrays
+  $score_sum = array();
+  for ($player_ind = 0; $player_ind < $num_players; $player_ind++)
+    $str .= 'seasons_data['.$player_ind.']=[];';  
+  //$score_sum[$player_ind] = array();
+
+  // Fill chart
+  foreach ($rseasons as &$season)
+  {
+    // Label
+    $str .= 'seasons_labels.push("'.$season->year.'");';
+
+    // Score
+    $keys = array_keys($season->players_score);
+    foreach ($keys as &$key)
+    {
+      $score_sum[$key] += $season->players_score[$key];
+      $str .= 'seasons_data['.$key.'].push("'.$score_sum[$key].'");';
+    }
+  }
+  $str .= '</script>';
+  $str .= '<script src="players.js"></script>';
 		
   // Output Top-players
-  
+
+  $str .= '<h4>Подробная статистика</h4>';
   $str .= '<table border="1"><td><th>Имя</th><th>Общий счёт<br>'.
     '(мин/ср/макс)</th><th>Игры<br>(Сумма пуль)</th>'.
     '<th>Участие/<br>Победы</th><th>Общая гора<br>'.

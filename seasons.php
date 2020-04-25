@@ -63,7 +63,7 @@ function get_page_str()
 
 	$str = get_header_str();
   $str .= '<body class="light">';
-  $str .= '<h2>Сезоны</h2><br>';
+  $str .= '<h2>Сезоны</h2>';
   
   // Seasons' statistics graph
 
