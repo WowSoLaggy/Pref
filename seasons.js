@@ -3,7 +3,7 @@ var canvas = document.getElementById('canvas_chart');
 var ctx = canvas.getContext('2d');
 
 canvas.width = 640;
-canvas.height = 480;
+canvas.height = 240;
 
 var myChart = new Chart(ctx, {
   type: 'line',
@@ -12,8 +12,8 @@ var myChart = new Chart(ctx, {
     datasets: [{
       label: 'Games count',
       data: seasons_data,
-      backgroundColor: 'rgba(0, 0, 0, 0)',
-      borderColor: 'darkgreen',
+      backgroundColor: 'rgba(1, 1, 1, 0.0)',
+      borderColor: 'orange',
       borderWidth: 2
     }]
   },

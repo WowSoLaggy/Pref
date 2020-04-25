@@ -51,7 +51,7 @@
 				$str .= '<td ';
 				
 				if ($player_score > 0)
-					$str .= 'bgcolor=#6EBA17>';
+					$str .= 'bgcolor=#5b9618>';
 				else if ($player_score < 0)
 					$str .= 'bgcolor=#9E7A17>';
 				
