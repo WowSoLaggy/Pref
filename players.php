@@ -21,13 +21,15 @@ function get_page_str()
   $rseasons = array_reverse($seasons);
   $str .= '<canvas id="canvas_chart"></canvas>';
   $str .= '<script>';
-  $str .= 'var seasons_labels=[]; var seasons_data=[];';
+  $str .= 'var seasons_labels=[]; var seasons_data=[]; var seasons_players=[];';
 
   // Init data arrays
   $score_sum = array();
   for ($player_ind = 0; $player_ind < $num_players; $player_ind++)
-    $str .= 'seasons_data['.$player_ind.']=[];';  
-  //$score_sum[$player_ind] = array();
+  {
+    $str .= 'seasons_data['.$player_ind.']=[];';
+    $str .= 'seasons_players['.$player_ind.']="'.$players[$player_ind]->name.'";';
+  }
 
   // Fill chart
   foreach ($rseasons as &$season)
@@ -36,11 +38,10 @@ function get_page_str()
     $str .= 'seasons_labels.push("'.$season->year.'");';
 
     // Score
-    $keys = array_keys($season->players_score);
-    foreach ($keys as &$key)
+    for ($player_ind = 0; $player_ind < $num_players; $player_ind++)
     {
-      $score_sum[$key] += $season->players_score[$key];
-      $str .= 'seasons_data['.$key.'].push("'.$score_sum[$key].'");';
+      $score_sum[$player_ind] += $season->players_score[$player_ind];
+      $str .= 'seasons_data['.$player_ind.'].push("'.round($score_sum[$player_ind]).'");';
     }
   }
   $str .= '</script>';
