@@ -170,6 +170,7 @@ $min_hill = 0;
 $min_hill_id = 0;
 $min_hill_player = 0;
 
+$undated_score = array();
 $seasons = array();
 
 for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
@@ -277,8 +278,16 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 	
 	$cur_game_date = date_parse($game->date);
 	$cur_game_year = $cur_game_date['year'];
-	if ($cur_game_year <= 2008)
-		continue;
+  if ($cur_game_year <= 2008)
+  {
+    // Save score to 'undated' for games before the year 2009
+    for ($player_ind = 1; $player_ind <= $game->num_players; ++$player_ind)
+    {
+      $player_id = $game->{'name_'.$player_ind};
+      $undated_score[$player_id] += $game->{'score_'.$player_ind};
+    }
+    continue;
+  }
 	
 	$season = &get_or_create_season($seasons, $cur_game_year);
 	
@@ -288,8 +297,6 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 	for ($player_ind = 1; $player_ind <= $game->num_players; ++$player_ind)
 	{
 		$player_id = $game->{'name_'.$player_ind};
-		$player = &$players[$player_id];
-		
 		$season->players_score[$player_id] += $game->{'score_'.$player_ind};
 	}
 }

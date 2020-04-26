@@ -21,13 +21,18 @@ function get_page_str()
   $rseasons = array_reverse($seasons);
   $str .= '<canvas id="canvas_chart"></canvas>';
   $str .= '<script>';
-  $str .= 'var seasons_labels=[]; var seasons_data=[]; var seasons_players=[];';
+  $str .= 'var seasons_labels=["до н.э."]; var seasons_data=[]; var seasons_players=[];';
 
   // Init data arrays
   $score_sum = array();
   for ($player_ind = 0; $player_ind < $num_players; $player_ind++)
   {
+    // Initialize array of sesons' results for player
     $str .= 'seasons_data['.$player_ind.']=[];';
+    // Add undated score as the initial value
+    $score_sum[$player_ind] += $undated_score[$player_ind];
+    $str .= 'seasons_data['.$player_ind.'].push('.round($score_sum[$player_ind]).');';
+
     $str .= 'seasons_players['.$player_ind.']="'.$players[$player_ind]->name.'";';
   }
 
