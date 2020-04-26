@@ -51,11 +51,11 @@
 				$str .= '<td ';
 				
 				if ($player_score > 0)
-					$str .= 'bgcolor=#5b9618>';
+					$str .= 'bgcolor=#5b9618';
 				else if ($player_score < 0)
-					$str .= 'bgcolor=#9E7A17>';
+					$str .= 'bgcolor=#9E7A17';
 				
-				$str .= "<img src='images/".$player_image."' align=left hspace=10 vspace=10 width=50>";
+				$str .= "><img src='images/".$player_image."' align=left hspace=10 vspace=10 width=50>";
 				
 				$str .= '<p>';
 				$str .= '<b>Счёт: '.round($player_score).'</b><br>';
