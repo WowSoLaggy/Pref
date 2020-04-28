@@ -43,12 +43,30 @@ function get_month_str($month)
 
 function get_header_str()
 {
-  $str =
-    '<html><head><title>Клуб "Паровоз Козлова"</title>'.
-    '<meta charset="utf-8"/>'.
-    '<link rel="stylesheet" type="text/css" href="style.css">'.
-    '<script src="libs/Chart.js"></script>'.
-    '</head>';
+  $str = '
+    <html><head><title>Клуб "Паровоз Козлова"</title>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="favicon.ico" type="image/ico"/>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="libs/Chart.js"></script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript" >
+      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+      m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+      (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+      ym(62412520, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true
+      });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/62412520" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    </head>';
 	return $str;
 }
 
