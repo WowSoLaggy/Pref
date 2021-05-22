@@ -49,7 +49,7 @@ function get_header_str()
     <link rel="icon" href="favicon.ico" type="image/ico"/>
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
     <link rel="stylesheet" type="text/css" href="style.css">
-    <script src="libs/Chart.js"></script>
+    <script src="./../libs/Chart.js"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript" >

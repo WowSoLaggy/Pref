@@ -10,7 +10,7 @@ function connect()
 	//$dbName = 'db_name';
 	//$dbUser = 'db_user';
 	//$dbPass = 'db_pass';
-	include('security.php');
+	include('./../config/security.php');
 
 	if (!isset($dbHost) || !isset($dbUser) || !isset($dbPass) || !isset($dbName))
 		throw new Exception('Cannot connect to DB: Please check the connection settings in the "security.php" file');
