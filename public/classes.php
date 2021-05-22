@@ -109,6 +109,7 @@ class Game
 
 class Season
 {
+  public $number = 1;
 	public $year = 2008;
 	
 	public $num_games = 0;

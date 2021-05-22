@@ -309,6 +309,12 @@ function year_sort($a, $b)
 }
 usort($seasons, "year_sort");
 
+// Assign season number
+
+$season_number = 0;
+foreach (array_reverse($seasons) as $season)
+  $season->number = ++$season_number;
+
 // Give prizes (medals)
 
 $current_year = date("Y");

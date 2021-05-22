@@ -5,7 +5,7 @@ function get_page_str()
 {
 	function draw_season(&$str, &$season, $draw_medals, &$players)
 	{
-		$str .= "<hr><h3>Сезон ".$season->year."</h3>";
+		$str .= "<hr><h3>Сезон ".$season->number." (".$season->year.")</h3>";
 
 		// Players
 
