@@ -1,6 +1,7 @@
 <?php
 
-include('classes.php');
+include('awards.php');
+include_once('classes.php');
 
 // Connects to the DB
 function connect()
@@ -340,6 +341,9 @@ foreach ($seasons as &$season)
 	$player_bronze = &$players[$keys[2]];
 	$player_bronze->add_medal(MedalValue::Bronze, $season->year);
 }
+
+// Grant personal awards
+grant_personal_awards($players);
 
 
 // Calculate average stats for all players

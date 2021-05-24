@@ -20,6 +20,30 @@ function draw_medals_to_str(&$str, &$player)
 }
 
 
+function get_personal_award_str($award_name)
+{
+  if ($award_name == 'crazy')
+    return '<img src="images/girl_crazy.gif" width=40 title="ЮЛЯ">';
+  if ($award_name == '100_in_2019')
+    return '<img src="images/award_100.png" width=25 title="Участие в 100ке 21 июля 2019 года">';
+}
+
+function draw_player_name_extended_str(&$player)
+{
+  $str .= '
+    <table border="0"><tr><td><img src="images/'.$player->image.
+    '" align=absmiddle hspace=10 vspace=10 width=50></td><td>'.
+    $player->name.'<br>';
+    
+  foreach ($player->personal_awards as $award)
+    $str .= get_personal_award_str($award);
+  
+  $str .= '</td></tr></table>';
+  
+  return $str;
+}
+
+
 function get_month_str($month)
 {
 	switch ($month)

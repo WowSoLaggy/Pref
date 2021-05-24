@@ -33,9 +33,9 @@ function get_page_str()
     $str .= '
       <tr>
       <td width=20 align=center>'.($player_ind + 1).'</td>
-      <td width=160><img src="images/'.$players_sorted[$player_ind]->image.
-      '" align=absmiddle hspace=10 vspace=10 width=50>'.
-      $players_sorted[$player_ind]->name.'</td>
+      <td width=160>'.
+      draw_player_name_extended_str($players_sorted[$player_ind]).
+      '</td>
       <td width=50 align=center>'.$players_sorted[$player_ind]->games.'</td>
       <td width=100 align=center><b><font size="+1">'.
       round($players_sorted[$player_ind]->score).'</font></b></td>';

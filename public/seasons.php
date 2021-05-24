@@ -35,8 +35,8 @@ function get_page_str()
 
 			$str .= "</td>";
 			$str .= 
-				"<td width=160><img src='images/".$players[$key]->image.
-				"' align=absmiddle hspace=10 vspace=10 width=50>".$players[$key]->name.
+				"<td width=160>".
+        draw_player_name_extended_str($players[$key]).
 				"</td>";
 			$str .= "<td width=60 align=center><b><font size='+1'>".round($season->players_score[$key])."</font></b></td>";
       $str .= "<td width=60 align=center>".$season->players_num_participated_games[$key].

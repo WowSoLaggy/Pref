@@ -52,7 +52,7 @@ function get_page_str()
   $str .= '</script>';
   $str .= '<script src="players.js"></script>';
 		
-  // Output Top-players
+  // Output players
 
   $str .= '<h4>Подробная статистика</h4>';
   $str .= '<table border="1"><td><th>Имя</th><th>Общий счёт<br>'.
@@ -65,8 +65,8 @@ function get_page_str()
   {
     $str .= "<tr><td width=20 align=center>".($player_ind + 1)."</td>";
     $str .= 
-        "<td width=160><img src='images/".$players[$player_ind]->image.
-        "' align=absmiddle hspace=10 vspace=10 width=50>".$players[$player_ind]->name.
+        "<td width=160>".
+        draw_player_name_extended_str($players[$player_ind]).
         "</td>";
     $str .=
         "<td width=110 align=center><b><font size='+1'>".round($players[$player_ind]->score)."</font></b><br>(".

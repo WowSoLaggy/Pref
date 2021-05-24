@@ -33,6 +33,8 @@ class Player
 	
 	public $medals = array();
 	public $medals_score = 0;
+  
+  public $personal_awards = array();
 	
 	public $score = 0;
 	public $score_min = MAX_VALUE;
