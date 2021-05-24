@@ -116,6 +116,7 @@ class Season
 	public $total = 0;
 	
 	public $players_score = array();
+  public $players_num_participated_games = array();
 }
 
 

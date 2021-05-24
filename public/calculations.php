@@ -298,6 +298,7 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 	{
 		$player_id = $game->{'name_'.$player_ind};
 		$season->players_score[$player_id] += $game->{'score_'.$player_ind};
+    ++$season->players_num_participated_games[$player_id];
 	}
 }
 

@@ -11,7 +11,7 @@ function get_page_str()
 
 		$str .= "<table border=0><tr>";
 		$str .= '<td valign=top width=500><h4>Топ игроков</h4><table border="1">';
-		$str .= '<td><th>Имя</th><th>Счёт</th></td>';
+		$str .= '<td><th>Имя</th><th>Счёт</th><th>Игры</th></td>';
 
 		$keys = array_keys($season->players_score);
 		$place = 1;
@@ -39,6 +39,8 @@ function get_page_str()
 				"' align=absmiddle hspace=10 vspace=10 width=50>".$players[$key]->name.
 				"</td>";
 			$str .= "<td width=60 align=center><b><font size='+1'>".round($season->players_score[$key])."</font></b></td>";
+      $str .= "<td width=60 align=center><b><font size='+1'>".$season->players_num_participated_games[$key].
+        "<br>(".round($season->players_num_participated_games[$key] * 100 / $season->num_games)."%)</font></b></td>";
 			$str .= "</tr>";
 
 			++$place;
