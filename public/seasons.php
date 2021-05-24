@@ -39,8 +39,8 @@ function get_page_str()
 				"' align=absmiddle hspace=10 vspace=10 width=50>".$players[$key]->name.
 				"</td>";
 			$str .= "<td width=60 align=center><b><font size='+1'>".round($season->players_score[$key])."</font></b></td>";
-      $str .= "<td width=60 align=center><b><font size='+1'>".$season->players_num_participated_games[$key].
-        "<br>(".round($season->players_num_participated_games[$key] * 100 / $season->num_games)."%)</font></b></td>";
+      $str .= "<td width=60 align=center>".$season->players_num_participated_games[$key].
+        "<br>(".round($season->players_num_participated_games[$key] * 100 / $season->num_games)."%)</td>";
 			$str .= "</tr>";
 
 			++$place;
