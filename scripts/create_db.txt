@@ -1,0 +1,35 @@
+CREATE DATABASE pref
+CHARACTER SET utf8
+COLLATE utf8_unicode_ci;
+USE pref;
+CREATE TABLE IF NOT EXISTS players_tbl (
+  id INT PRIMARY KEY,
+  name TEXT,
+  image TEXT
+);
+CREATE TABLE IF NOT EXISTS games_tbl (
+  id INT PRIMARY KEY,
+  total INT,
+  num_players INT,
+  1_name INT,
+  2_name INT,
+  3_name INT,
+  4_name INT,
+  1_hill INT,
+  2_hill INT,
+  3_hill INT,
+  4_hill INT,
+  1_money_2 INT,
+  1_money_3 INT,
+  1_money_4 INT,
+  2_money_1 INT,
+  2_money_3 INT,
+  2_money_4 INT,
+  3_money_1 INT,
+  3_money_2 INT,
+  3_money_4 INT,
+  4_money_1 INT,
+  4_money_2 INT,
+  4_money_3 INT,
+  date DATE
+);
