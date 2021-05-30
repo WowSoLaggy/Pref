@@ -16,87 +16,102 @@ function connect()
 	if (!isset($dbHost) || !isset($dbUser) || !isset($dbPass) || !isset($dbName))
 		throw new Exception('Cannot connect to DB: Please check the connection settings in the "security.php" file');
 	
-	$connection = mysql_connect($dbHost, $dbUser, $dbPass);
-	mysql_select_db($dbName, $connection);
-	mysql_query("SET NAMES utf8;");
+	$link = mysqli_connect($dbHost, $dbUser, $dbPass);;
+	mysqli_select_db($link, $dbName) or die('Error'. mysqli_error());
+	mysqli_query($link, "SET NAMES utf8;");
 	
-	return $connection;
+	return $link;
 }
 
 // Disconnects from the DB
 function disconnect($connection)
 {
-	mysql_close($connection);
+	mysqli_close($connection);
+}
+
+
+// Self-written (honestly copied from web) function
+// that replaces 'mysql_result'
+function mysqli_result($res,$row=0,$col=0){ 
+    $numrows = mysqli_num_rows($res); 
+    if ($numrows && $row <= ($numrows-1) && $row >=0){
+        mysqli_data_seek($res,$row);
+        $resrow = (is_numeric($col)) ? mysqli_fetch_row($res) : mysqli_fetch_assoc($res);
+        if (isset($resrow[$col])){
+            return $resrow[$col];
+        }
+    }
+    return false;
 }
 
 
 // Returns array of all players
-function getPlayers()
+function getPlayers($connection)
 {
 	$players = array();
 	
-	$result = mysql_query("SELECT id, name, image FROM players_tbl");
-	$num_players = mysql_num_rows($result);
+	$result = mysqli_query($connection, "SELECT id, name, image FROM players_tbl");
+	$num_players = mysqli_num_rows($result);
 	for ($i = 0; $i < $num_players; $i++)
 	{
 		$player = new Player();
 		
-		$player->id = mysql_result($result, $i, 'id');
-		$player->name = mysql_result($result, $i, 'name');
-		$player->image = mysql_result($result, $i, 'image');
+		$player->id = mysqli_result($result, $i, 'id');
+		$player->name = mysqli_result($result, $i, 'name');
+		$player->image = mysqli_result($result, $i, 'image');
 		
 		array_push($players, $player);
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 	
 	return $players;
 }
 
 // Returns array of all games
-function getGames()
+function getGames($connection)
 {
 	$games = array();
 
-	$result = mysql_query("SELECT * FROM games_tbl ORDER BY date DESC");
-	$num_games = mysql_num_rows($result);
+	$result = mysqli_query($connection, "SELECT * FROM games_tbl ORDER BY date DESC");
+	$num_games = mysqli_num_rows($result);
 	for ($i = 0; $i < $num_games; $i++)
 	{
 		$game = new Game();
 		
-		$game->id = mysql_result($result, $i, 'id');
-		$game->total = mysql_result($result, $i, 'total');
-		$game->num_players = mysql_result($result, $i, 'num_players');
-		$game->date = mysql_result($result, $i, 'date');
+		$game->id = mysqli_result($result, $i, 'id');
+		$game->total = mysqli_result($result, $i, 'total');
+		$game->num_players = mysqli_result($result, $i, 'num_players');
+		$game->date = mysqli_result($result, $i, 'date');
 		
-		$game->name_1 = mysql_result($result, $i, '1_name');
-		$game->name_2 = mysql_result($result, $i, '2_name');
-		$game->name_3 = mysql_result($result, $i, '3_name');
-		$game->name_4 = mysql_result($result, $i, '4_name');
+		$game->name_1 = mysqli_result($result, $i, '1_name');
+		$game->name_2 = mysqli_result($result, $i, '2_name');
+		$game->name_3 = mysqli_result($result, $i, '3_name');
+		$game->name_4 = mysqli_result($result, $i, '4_name');
 		
-		$game->hill_1 = mysql_result($result, $i, '1_hill');
-		$game->hill_2 = mysql_result($result, $i, '2_hill');
-		$game->hill_3 = mysql_result($result, $i, '3_hill');
-		$game->hill_4 = mysql_result($result, $i, '4_hill');
+		$game->hill_1 = mysqli_result($result, $i, '1_hill');
+		$game->hill_2 = mysqli_result($result, $i, '2_hill');
+		$game->hill_3 = mysqli_result($result, $i, '3_hill');
+		$game->hill_4 = mysqli_result($result, $i, '4_hill');
 		
-		$game->money_1_2 = mysql_result($result, $i, '1_money_2');
-		$game->money_1_3 = mysql_result($result, $i, '1_money_3');
-		$game->money_1_4 = mysql_result($result, $i, '1_money_4');
+		$game->money_1_2 = mysqli_result($result, $i, '1_money_2');
+		$game->money_1_3 = mysqli_result($result, $i, '1_money_3');
+		$game->money_1_4 = mysqli_result($result, $i, '1_money_4');
 		
-		$game->money_2_1 = mysql_result($result, $i, '2_money_1');
-		$game->money_2_3 = mysql_result($result, $i, '2_money_3');
-		$game->money_2_4 = mysql_result($result, $i, '2_money_4');
+		$game->money_2_1 = mysqli_result($result, $i, '2_money_1');
+		$game->money_2_3 = mysqli_result($result, $i, '2_money_3');
+		$game->money_2_4 = mysqli_result($result, $i, '2_money_4');
 		
-		$game->money_3_1 = mysql_result($result, $i, '3_money_1');
-		$game->money_3_2 = mysql_result($result, $i, '3_money_2');
-		$game->money_3_4 = mysql_result($result, $i, '3_money_4');
+		$game->money_3_1 = mysqli_result($result, $i, '3_money_1');
+		$game->money_3_2 = mysqli_result($result, $i, '3_money_2');
+		$game->money_3_4 = mysqli_result($result, $i, '3_money_4');
 		
-		$game->money_4_1 = mysql_result($result, $i, '4_money_1');
-		$game->money_4_2 = mysql_result($result, $i, '4_money_2');
-		$game->money_4_3 = mysql_result($result, $i, '4_money_3');
+		$game->money_4_1 = mysqli_result($result, $i, '4_money_1');
+		$game->money_4_2 = mysqli_result($result, $i, '4_money_2');
+		$game->money_4_3 = mysqli_result($result, $i, '4_money_3');
 		
 		array_push($games, $game);
 	}
-	mysql_free_result($result);
+	mysqli_free_result($result);
 
 	return $games;
 }
@@ -137,10 +152,10 @@ function get_or_create_season(&$seasons, $year)
 
 $connection = connect();
 
-$players = getPlayers();
+$players = getPlayers($connection);
 $num_players = count($players);
 
-$games = getGames();
+$games = getGames($connection);
 $num_games = count($games);
 
 
