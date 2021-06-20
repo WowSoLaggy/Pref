@@ -1,4 +1,4 @@
-Place security.txt file to this folder with the following content:
+Place security.php file to this folder with the following content:
 
 <?php
 
