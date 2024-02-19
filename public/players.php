@@ -33,7 +33,7 @@ function get_page_str()
     // Add undated score as the initial value
     if (!isset($score_sum[$player_ind]))
       $score_sum[$player_ind] = 0;
-    if (isset($undated_score[$player_ind]))
+    if (!isset($undated_score[$player_ind]))
       $undated_score[$player_ind] = 0;
     
     $score_sum[$player_ind] += $undated_score[$player_ind];
