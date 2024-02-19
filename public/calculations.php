@@ -300,7 +300,8 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
     for ($player_ind = 1; $player_ind <= $game->num_players; ++$player_ind)
     {
       $player_id = $game->{'name_'.$player_ind};
-      $undated_score[$player_id] += $game->{'score_'.$player_ind};
+      $score = $game->{'score_'.$player_ind};
+      $undated_score[$player_id] += $score;
     }
     continue;
   }
