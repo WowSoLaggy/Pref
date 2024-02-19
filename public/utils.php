@@ -30,7 +30,7 @@ function get_personal_award_str($award_name)
 
 function draw_player_name_extended_str(&$player)
 {
-  $str .= '
+  $str = '
     <table border="0"><tr><td><img src="images/'.$player->image.
     '" align=absmiddle hspace=10 vspace=10 width=50></td><td>'.
     $player->name.'<br>';
