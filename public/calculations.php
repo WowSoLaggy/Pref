@@ -315,6 +315,12 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
 	for ($player_ind = 1; $player_ind <= $game->num_players; ++$player_ind)
 	{
 		$player_id = $game->{'name_'.$player_ind};
+    
+    if (!isset($season->players_score[$player_id]))
+      $season->players_score[$player_id] = 0;
+    if (!isset($season->players_num_participated_games[$player_id]))
+      $season->players_num_participated_games[$player_id] = 0;
+    
 		$season->players_score[$player_id] += $game->{'score_'.$player_ind};
     ++$season->players_num_participated_games[$player_id];
 	}
