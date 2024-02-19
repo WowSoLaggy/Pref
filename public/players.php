@@ -33,7 +33,7 @@ function get_page_str()
     // Add undated score as the initial value
     if (!isset($score_sum[$player_ind]))
       $score_sum[$player_ind] = 0;
-    if (!isset($undated_score[$player_ind]))
+    if (isset($undated_score[$player_ind]))
       $undated_score[$player_ind] = 0;
     
     $score_sum[$player_ind] += $undated_score[$player_ind];
@@ -51,6 +51,11 @@ function get_page_str()
     // Score
     for ($player_ind = 0; $player_ind < $num_players; $player_ind++)
     {
+      if (!isset($score_sum[$player_ind]))
+        $score_sum[$player_ind] = 0;
+      if (!isset($season->players_score[$player_ind]))
+        $season->players_score[$player_ind] = 0;
+      
       $score_sum[$player_ind] += $season->players_score[$player_ind];
       $str .= 'seasons_data['.$player_ind.'].push("'.round($score_sum[$player_ind]).'");';
     }
