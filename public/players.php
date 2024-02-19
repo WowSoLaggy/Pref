@@ -30,6 +30,8 @@ function get_page_str()
     // Initialize array of sesons' results for player
     $str .= 'seasons_data['.$player_ind.']=[];';
     // Add undated score as the initial value
+    if (!isset($score_sum[$player_ind]))
+      $score_sum[$player_ind] = 0;
     $score_sum[$player_ind] += $undated_score[$player_ind];
     $str .= 'seasons_data['.$player_ind.'].push('.round($score_sum[$player_ind]).');';
 
