@@ -307,7 +307,7 @@ for ($game_ind = 0; $game_ind < $num_games; ++$game_ind)
     continue;
   }
 	
-	$season = &get_or_create_season($seasons, $cur_game_year);
+	$season = get_or_create_season($seasons, $cur_game_year);
 	
 	++$season->num_games;
 	$season->total += $game->total;
